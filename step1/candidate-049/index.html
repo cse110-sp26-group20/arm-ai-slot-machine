@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gacha</h1>
+            <p class="subtitle">Will you achieve AGI or go bankrupt on API calls?</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="stat">
+                    <span class="label">Compute Tokens:</span>
+                    <span class="value" id="token-balance">1000</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Cost/Spin:</span>
+                    <span class="value cost">10</span>
+                </div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbol">💸</div>
+                </div>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Insert tokens to query the Oracle.
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="spin-btn">GENERATE (SPIN)</button>
+            </div>
+        </main>
+
+        <div class="paytable">
+            <h3>Reward Function</h3>
+            <ul>
+                <li>🤖🤖🤖 : +100 Tokens (AGI Achieved!)</li>
+                <li>🧠🧠🧠 : +50 Tokens (Big Brain Context)</li>
+                <li>💸💸💸 : +25 Tokens (VC Funding Secured)</li>
+                <li>🔋🔋🔋 : +15 Tokens (Compute Granted)</li>
+                <li>⚠️⚠️⚠️ : -50 Tokens (Hallucination Penalty)</li>
+                <li>Any 2 Matches: +5 Tokens (Partial Generation)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
