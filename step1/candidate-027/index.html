@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Token Gacha</title>
+    <title>AI Token Casino</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>AI Token Gacha 🤖🎰</h1>
-            <p>Spend your context window! Win hallucinations!</p>
+            <h1>🎰 AI Token Casino 🤖</h1>
+            <p class="subtitle">Where your context window goes to die.</p>
         </header>
 
         <main class="slot-machine">
-            <div class="slots">
-                <div class="slot" id="slot1">❓</div>
-                <div class="slot" id="slot2">❓</div>
-                <div class="slot" id="slot3">❓</div>
-            </div>
-            
-            <div class="controls">
-                <div class="stats">
-                    <p>Tokens: <span id="token-count">1000</span> 🪙</p>
-                    <p>Cost per spin: <span id="spin-cost">50</span> 🪙</p>
+            <div class="status-bar">
+                <div class="tokens">
+                    Context Tokens: <span id="token-count">10000</span>
                 </div>
-                <button id="spin-button">Generate (Spin)</button>
+                <div class="cost">Cost per Generation: 500 Tokens</div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel-1">🤖</div>
+                <div class="reel" id="reel-2">🤖</div>
+                <div class="reel" id="reel-3">🤖</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate (Spin)</button>
             </div>
 
             <div class="message-board">
-                <p id="message">System Prompt: Insert tokens to begin.</p>
+                <p id="message">Prompt the model to start playing!</p>
             </div>
         </main>
+
+        <section class="paytable">
+            <h2>Paytable</h2>
+            <ul>
+                <li>🧠 🧠 🧠 - AGI Achieved! (+5000 Tokens)</li>
+                <li>💸 💸 💸 - VC Funding Secured! (+2000 Tokens)</li>
+                <li>⚡ ⚡ ⚡ - Compute Allocated! (+1000 Tokens)</li>
+                <li>🤖 🤖 🤖 - Model Converged! (+500 Tokens)</li>
+                <li>Any other combo - Hallucination! (-500 Tokens)</li>
+            </ul>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
