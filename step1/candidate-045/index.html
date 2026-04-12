@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generative AI Slot Machine</h1>
+            <p>Spend your context window wisely!</p>
+        </header>
+        
+        <div class="stats">
+            <div class="balance">Tokens Remaining: <span id="balance">1000</span></div>
+            <div class="cost">Cost per Prompt: 50 Tokens</div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+            <button id="spinBtn">Generate Response (Spin)</button>
+        </div>
+
+        <div class="message" id="message">Insert tokens to start hallucinating.</div>
+        
+        <div class="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>✨ ✨ ✨ (AGI): 2000 Tokens</li>
+                <li>🖥️ 🖥️ 🖥️ (H100 GPUs): 1000 Tokens</li>
+                <li>🧠 🧠 🧠 (Galaxy Brain): 500 Tokens</li>
+                <li>Any 2 Matching: 100 Tokens</li>
+                <li>🗑️ 🗑️ 🗑️ (Complete Hallucination): -200 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
