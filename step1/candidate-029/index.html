@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <div class="token-display">
+                <span>COMPUTE TOKENS: </span>
+                <span id="token-count" class="highlight">1000</span>
+            </div>
+            <p class="cost">Cost per generation: 10 tokens</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">🤖</div>
+                <div class="reel" id="reel-2">🤖</div>
+                <div class="reel" id="reel-3">🤖</div>
+            </div>
+            
+            <div class="controls">
+                <button id="spin-btn" class="action-btn">GENERATE (SPIN)</button>
+            </div>
+
+            <div class="message-board">
+                <p id="message">System Ready. Insert tokens to begin generation.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Warning: May produce hallucinations and drain your budget.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
