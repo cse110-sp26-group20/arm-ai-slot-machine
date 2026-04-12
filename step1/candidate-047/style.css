@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --accent-color: #10b981;
+    --accent-hover: #059669;
+    --machine-bg: #1e293b;
+    --reel-bg: #f8fafc;
+    --error-color: #ef4444;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #94a3b8;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.slot-machine {
+    background-color: var(--machine-bg);
+    border: 4px solid #334155;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.reels {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #475569;
+    margin-bottom: 30px;
+    box-shadow: inset 0 10px 15px rgba(0,0,0,0.5);
+}
+
+.reel {
+    width: 90px;
+    height: 110px;
+    background-color: var(--reel-bg);
+    color: #0f172a;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+
+.reel.spinning {
+    animation: spin-blur 0.1s infinite linear;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.reel.spinning::after {
+    content: '🌀';
+    position: absolute;
+    font-size: 3.5rem;
+    color: #94a3b8;
+    animation: rotate 0.3s infinite linear;
+}
+
+@keyframes spin-blur {
+    0% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    box-shadow: 0 6px 0 #047857, 0 10px 10px rgba(0,0,0,0.4);
+    width: 100%;
+    max-width: 300px;
+}
+
+.spin-btn:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #047857, 0 8px 8px rgba(0,0,0,0.4);
+}
+
+.spin-btn:active:not(:disabled) {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #047857, 0 4px 4px rgba(0,0,0,0.4);
+}
+
+.spin-btn:disabled {
+    background-color: #475569;
+    box-shadow: 0 6px 0 #334155;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.status-board {
+    background-color: var(--machine-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #334155;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.balance {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#tokenCount {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
+
+.message {
+    font-size: 1.1rem;
+    min-height: 1.5em;
+    color: #cbd5e1;
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgba(15, 23, 42, 0.5);
+    border-radius: 5px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.paytable {
+    text-align: left;
+    background-color: rgba(30, 41, 59, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+.paytable h3 {
+    margin-top: 0;
+    color: #94a3b8;
+    border-bottom: 1px solid #475569;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.paytable ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 480px) {
+    .paytable ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.paytable li {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    background: rgba(15, 23, 42, 0.4);
+    padding: 8px 12px;
+    border-radius: 4px;
+}

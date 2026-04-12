@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Pre-trained Slot (GPS-4)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generative Pre-trained Slot (GPS-4)</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+        
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel3"><div class="symbol">🤖</div></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="stats">
+                <div class="stat-box">
+                    <span>API Credits:</span>
+                    <span id="balance" class="token-count">1000</span> <span class="token-icon">🪙</span>
+                </div>
+                <div class="stat-box">
+                    <span>Inference Cost:</span>
+                    <span class="cost">10</span> <span class="token-icon">🪙</span>
+                </div>
+            </div>
+            
+            <div class="message-board" id="message">System idle. Ready for prompt...</div>
+            
+            <button id="spin-button" class="btn">Generate Content (Spin)</button>
+        </div>
+
+        <div class="paytable">
+            <h3>Reward Function (Paytable)</h3>
+            <ul>
+                <li>🧠 🧠 🧠 : AGI Achieved! (+500 🪙)</li>
+                <li>🖥️ 🖥️ 🖥️ : GPU Cluster Secured (+100 🪙)</li>
+                <li>🤖 🤖 🤖 : Good Response (+50 🪙)</li>
+                <li>💸 💸 💸 : VC Funding (+25 🪙)</li>
+                <li>🗑️ 🗑️ 🗑️ : Hallucination (0 🪙)</li>
+                <li>📉 📉 📉 : AI Winter (-50 🪙)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

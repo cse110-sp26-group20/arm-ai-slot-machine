@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 AI Token Burner 3000 🎰</h1>
+            <p>Spend your context window. Win synthetic data.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🧠</div></div>
+                <div class="reel" id="reel3"><div class="symbol">⚡</div></div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="label">Context Tokens:</span>
+                        <span class="value" id="balance">10000</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Inference Cost:</span>
+                        <span class="value" id="bet">100</span>
+                    </div>
+                </div>
+                <button id="spin-button">Generate (Spin)</button>
+            </div>
+
+            <div class="message-board">
+                <p id="message">System Prompt Loaded. Ready to hallucinate.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Disclaimer: No actual GPUs were harmed in the making of this slot machine.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

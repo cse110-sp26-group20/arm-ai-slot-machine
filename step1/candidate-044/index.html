@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Waster</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 LLM Token Waster 🎰</h1>
+        <div class="stats">
+            <p>Context Window: <span id="tokens">1000</span> Tokens</p>
+            <p>Cost per prompt: 100 Tokens</p>
+        </div>
+        
+        <div class="slot-machine">
+            <div class="reel" id="reel1">🤖</div>
+            <div class="reel" id="reel2">🧠</div>
+            <div class="reel" id="reel3">💬</div>
+        </div>
+        
+        <button id="spin-button">Generate (Spin)</button>
+        
+        <div class="message" id="message">Insert tokens to generate slop!</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
