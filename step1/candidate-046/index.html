@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 The Great AI Token Burner 🎰</h1>
+        <p class="subtitle">Will you reach AGI or just burn through your API budget?</p>
+        
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">❓</div>
+                <div class="reel" id="reel2">❓</div>
+                <div class="reel" id="reel3">❓</div>
+            </div>
+            
+            <div class="controls">
+                <div class="bet-info">
+                    <span>Bet: <span id="bet-amount">10</span> Tokens</span>
+                </div>
+                <button id="spin-btn">SPIN (Cost: 10 Tokens)</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <h2>Your API Wallet</h2>
+            <div class="balance">
+                <span class="token-icon">🪙</span> 
+                <span id="balance">1000</span> Tokens
+            </div>
+            <div id="message" class="message">Insert tokens to start your startup!</div>
+        </div>
+        
+        <div class="paytable">
+            <h3>Paytable (Payouts)</h3>
+            <ul>
+                <li>🧠 🧠 🧠 (AGI) = 500 Tokens</li>
+                <li>🖥️ 🖥️ 🖥️ (H100 GPU) = 200 Tokens</li>
+                <li>📈 📈 📈 (Exponential Growth) = 100 Tokens</li>
+                <li>🗑️ 🗑️ 🗑️ (Hallucination) = -50 Tokens (Penalty!)</li>
+                <li>Any 2 matching (except 🗑️) = 20 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
