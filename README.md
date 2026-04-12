@@ -19,3 +19,9 @@ Then you will get
 ```
 ![step 2](./img/step1-2.png)
 ![step 3](./img/step1-3.png)
+
+5). Measure
+
+Add the info to the `STATS.md`
+
+![step 4](./img/step1-4.png)
