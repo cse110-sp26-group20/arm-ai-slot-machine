@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Casino</h1>
+            <p>Spend your context window wisely...</p>
+        </header>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">❓</div>
+                <div class="reel" id="reel2">❓</div>
+                <div class="reel" id="reel3">❓</div>
+            </div>
+            
+            <div class="controls">
+                <button id="spinBtn" class="spin-btn">GENERATE (Cost: 10 Tokens)</button>
+            </div>
+        </div>
+
+        <div class="status-board">
+            <div class="balance">Tokens Available: <span id="tokenCount">1000</span></div>
+            <div id="message" class="message">Ready for your prompt.</div>
+        </div>
+
+        <div class="paytable">
+            <h3>Paytable (LLM Evaluation)</h3>
+            <ul>
+                <li>🧠 🧠 🧠 - AGI Achieved: +500 Tokens</li>
+                <li>💸 💸 💸 - VC Funding: +200 Tokens</li>
+                <li>🤖 🤖 🤖 - Good Bot: +100 Tokens</li>
+                <li>⚡ ⚡ ⚡ - Compute Secured: +50 Tokens</li>
+                <li>💬 💬 💬 - Perfect Prompt: +20 Tokens</li>
+                <li>📉 📉 📉 - Model Collapse: 0 Tokens</li>
+                <li>Any 2 matching - Partial Context: +5 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
