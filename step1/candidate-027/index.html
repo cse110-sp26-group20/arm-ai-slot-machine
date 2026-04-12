@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gacha 🤖🎰</h1>
+            <p>Spend your context window! Win hallucinations!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="slots">
+                <div class="slot" id="slot1">❓</div>
+                <div class="slot" id="slot2">❓</div>
+                <div class="slot" id="slot3">❓</div>
+            </div>
+            
+            <div class="controls">
+                <div class="stats">
+                    <p>Tokens: <span id="token-count">1000</span> 🪙</p>
+                    <p>Cost per spin: <span id="spin-cost">50</span> 🪙</p>
+                </div>
+                <button id="spin-button">Generate (Spin)</button>
+            </div>
+
+            <div class="message-board">
+                <p id="message">System Prompt: Insert tokens to begin.</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
