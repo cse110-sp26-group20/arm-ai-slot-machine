@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gacha 🎰</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate (Cost: 10 Tokens)</button>
+            </div>
+
+            <div class="status">
+                <div class="balance">Available Tokens: <span id="token-count">1000</span></div>
+                <div class="message" id="message">Insert tokens to generate text...</div>
+            </div>
+        </main>
+
+        <footer>
+            <p><small>Disclaimer: AI output may be inaccurate. No refunds on hallucinated tokens.</small></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

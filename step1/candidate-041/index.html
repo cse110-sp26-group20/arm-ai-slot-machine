@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gambler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 AI Token Gambler 🎰</h1>
+            <p class="subtitle">Will you achieve AGI or burn all your compute?</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="label">Context Tokens:</span>
+                    <span id="token-count" class="value">100000</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Spin Cost:</span>
+                    <span class="value text-red">-1000</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">🖨️</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="btn primary">GENERATE (SPIN)</button>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Insert prompt to begin inference...
+            </div>
+        </main>
+
+        <div class="legend">
+            <h3>Paytable (Payouts in Tokens)</h3>
+            <ul>
+                <li>🍓🍓🍓 Strawberry Model: +50,000</li>
+                <li>🧠🧠🧠 AGI Achieved: +20,000</li>
+                <li>💸💸💸 Series A Funding: +10,000</li>
+                <li>🖨️🖨️🖨️ GPU Hoarder: +5,000</li>
+                <li>🤖🤖🤖 Agentic Workflow: +2,000</li>
+                <li>🗑️🗑️🗑️ Garbage In, Garbage Out: -5,000</li>
+                <li>Any two matching: +500</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

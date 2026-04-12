@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Token Gambler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LLM Token Gambler 🎰</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Context Tokens:</span>
+                <span id="balance" class="value">1000</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">API Cost/Spin:</span>
+                <span class="value">-10</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">💰</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="spin-button">Generate Output (Spin)</button>
+            </div>
+        </div>
+
+        <div class="message-area" id="message-area">
+            Welcome to the Inference Engine! Press Generate to start.
+        </div>
+        
+        <div class="paytable">
+            <h3>Reward System</h3>
+            <ul>
+                <li>🤖🤖🤖 AGI Achieved! +500 Tokens</li>
+                <li>🧠🧠🧠 Galaxy Brain! +200 Tokens</li>
+                <li>💰💰💰 Series A Secured! +100 Tokens</li>
+                <li>🛑🛑🛑 Rate Limited! -50 Tokens</li>
+                <li>🗑️🗑️🗑️ Total Hallucination! -100 Tokens</li>
+                <li>⚡⚡⚡ Compute Cluster Optimized! +50 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
