@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 AI Token Burner 🎰</h1>
+        <p class="subtitle">Will you achieve AGI or just burn your context window?</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span>Tokens Remaining:</span>
+                <span id="token-count" class="highlight">1000</span>
+            </div>
+            <div class="stat-box">
+                <span>Compute Cost:</span>
+                <span id="spin-cost" class="highlight">10</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel-container">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+            <div class="win-line"></div>
+        </div>
+
+        <button id="spin-btn" class="spin-button">GENERATE (Spin)</button>
+
+        <div class="message-board">
+            <p id="message">System Prompt Loaded. Ready to hallucinate.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
