@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generative AI Slot Machine</h1>
+            <p>Spin the weights, spend your tokens!</p>
+        </header>
+
+        <div class="game-area">
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="label">Balance:</span>
+                    <span id="balance" class="value">1000</span> <span class="unit">Tokens</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Cost/Spin:</span>
+                    <span id="cost" class="value">10</span> <span class="unit">Tokens</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels">
+                    <div class="reel" id="reel1">🤖</div>
+                    <div class="reel" id="reel2">🤖</div>
+                    <div class="reel" id="reel3">🤖</div>
+                </div>
+                <div class="machine-overlay"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button" class="btn">Generate Response (Spin)</button>
+            </div>
+
+            <div class="message-area">
+                <p id="message">System prompt loaded. Ready to generate.</p>
+            </div>
+        </div>
+        
+        <div class="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>🧠 🧠 🧠 = AGI Achieved (+500 Tokens)</li>
+                <li>🤖 🤖 🤖 = Perfect Alignment (+100 Tokens)</li>
+                <li>⚡ ⚡ ⚡ = Compute Optimized (+50 Tokens)</li>
+                <li>☁️ ☁️ ☁️ = Cloud Credits (+20 Tokens)</li>
+                <li>Any 2 📉 = Hallucination (-20 Tokens Penalty)</li>
+                <li>Any 2 💸 = API Rate Limit Hit (-10 Tokens Penalty)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Burner 9000</h1>
+            <p>Compute is expensive. Spin to win (or lose) your API tokens!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="balance-board">
+                <span>API Tokens: </span>
+                <span id="token-balance">1000</span>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbol">🤖</div>
+                </div>
+            </div>
+
+            <div class="message-board" id="message">
+                Insert compute to start training... (Cost: 10 Tokens)
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate (Spin)</button>
+            </div>
+        </main>
+
+        <section class="paytable">
+            <h2>Paytable</h2>
+            <ul>
+                <li>💸 💸 💸 : VC Funding Secured (+500 Tokens)</li>
+                <li>🧠 🧠 🧠 : AGI Reached (+200 Tokens)</li>
+                <li>🤖 🤖 🤖 : Successful Model Weights (+50 Tokens)</li>
+                <li>🔋 🔋 🔋 : GPU Cluster Procured (+20 Tokens)</li>
+                <li>🗑️ 🗑️ 🗑️ : Model Collapse (-100 Tokens)</li>
+                <li>Any Mixed: Hallucination (Just lose spin cost)</li>
+            </ul>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

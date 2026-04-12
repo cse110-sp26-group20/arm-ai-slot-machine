@@ -1,0 +1,207 @@
+:root {
+    --bg-color: #0f172a;
+    --panel-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    --win-color: #10b981;
+    --lose-color: #ef4444;
+    --reel-bg: #f1f5f9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for coding/AI feel */
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--panel-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #334155;
+    margin: 2rem;
+}
+
+header h1 {
+    margin-top: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+header p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    background: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+}
+
+.stat-box {
+    font-size: 1.2rem;
+}
+
+.stat-box .label {
+    color: var(--text-secondary);
+}
+
+.stat-box .value {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.slot-machine {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 2rem;
+    border: 4px solid #334155;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.reels {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.reel {
+    background-color: var(--reel-bg);
+    color: #000;
+    width: 100px;
+    height: 120px;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.2), inset 0 -5px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.reel.spinning {
+    animation: blur 0.1s infinite;
+}
+
+@keyframes blur {
+    0% { filter: blur(0px); transform: translateY(0); }
+    50% { filter: blur(4px); transform: translateY(5px); }
+    100% { filter: blur(0px); transform: translateY(0); }
+}
+
+.controls {
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-shadow: 0 4px 0 #2563eb, 0 0 15px var(--accent-glow);
+    width: 100%;
+}
+
+.btn:hover:not(:disabled) {
+    background-color: #60a5fa;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #2563eb, 0 0 20px var(--accent-glow);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.btn:disabled {
+    background-color: #475569;
+    box-shadow: 0 4px 0 #334155;
+    cursor: not-allowed;
+    transform: none;
+    color: #94a3b8;
+}
+
+.message-area {
+    background: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--win-color);
+    transition: color 0.3s;
+}
+
+#message.error {
+    color: var(--lose-color);
+}
+
+#message.warning {
+    color: #f59e0b;
+}
+
+.paytable {
+    margin-top: 2rem;
+    text-align: left;
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.paytable h3 {
+    margin-top: 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.5rem;
+}
+
+.paytable ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paytable li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+}
+.paytable li:last-child {
+    border-bottom: none;
+}
