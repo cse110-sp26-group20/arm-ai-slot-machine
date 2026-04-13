@@ -1,0 +1,140 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #e94560;
+    --machine-bg: #16213e;
+    --reel-bg: #0f3460;
+    --gold: #f9a826;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background-color: var(--machine-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 4px solid var(--text-color);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.stat-box {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#token-count {
+    color: var(--gold);
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #000;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px inset #333;
+}
+
+.reel {
+    width: 80px;
+    height: 100px;
+    background-color: var(--reel-bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    border: 2px solid #555;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: transform 0.1s;
+    user-select: none;
+}
+
+.spinning {
+    animation: blur 0.1s infinite;
+}
+
+@keyframes blur {
+    0% { filter: blur(0px); transform: translateY(0); }
+    50% { filter: blur(4px); transform: translateY(-5px); }
+    100% { filter: blur(0px); transform: translateY(0); }
+}
+
+button {
+    background-color: var(--text-color);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.1s;
+    font-family: inherit;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #d63d56;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.message-area {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message {
+    margin: 0;
+    font-size: 1.1em;
+    color: #4ade80;
+    line-height: 1.4;
+}

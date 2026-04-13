@@ -1,0 +1,169 @@
+:root {
+    --bg-color: #0f172a;
+    --panel-bg: #1e293b;
+    --text-color: #f8fafc;
+    --accent-color: #10b981;
+    --accent-hover: #059669;
+    --reel-bg: #ffffff;
+    --danger-color: #ef4444;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: var(--panel-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #10b981, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+.slot-machine {
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 4px solid #334155;
+    margin-bottom: 2rem;
+}
+
+.reels {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.reel {
+    background-color: var(--reel-bg);
+    width: 100px;
+    height: 120px;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.symbol {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s linear;
+}
+
+.controls button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:hover {
+    background-color: var(--accent-hover);
+}
+
+.controls button:disabled {
+    background-color: #475569;
+    cursor: not-allowed;
+    color: #94a3b8;
+}
+
+.status-board {
+    margin-top: 2rem;
+    background-color: #0f172a;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #334155;
+}
+
+.balance {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#token-balance {
+    color: var(--accent-color);
+}
+
+.message {
+    font-size: 1.1rem;
+    min-height: 1.5em;
+    color: #cbd5e1;
+    font-family: monospace;
+}
+
+.legend {
+    text-align: left;
+    background-color: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.legend h3 {
+    margin-top: 0;
+    color: #94a3b8;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.5rem;
+}
+
+.legend ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legend li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes spin-blur {
+    0% { filter: blur(0px); transform: translateY(0); }
+    50% { filter: blur(4px); transform: translateY(15px); }
+    100% { filter: blur(0px); transform: translateY(0); }
+}
+
+.spinning .symbol {
+    animation: spin-blur 0.1s infinite linear;
+}
