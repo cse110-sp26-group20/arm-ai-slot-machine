@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Burner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Burner 9000</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Context Tokens:</span>
+                <span id="token-count" class="value">10000</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Cost per Inference:</span>
+                <span class="value">500</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1"><div class="symbols"></div></div>
+                <div class="reel" id="reel2"><div class="symbols"></div></div>
+                <div class="reel" id="reel3"><div class="symbols"></div></div>
+            </div>
+            <div class="win-line"></div>
+        </div>
+
+        <div class="controls">
+            <button id="spin-btn">GENERATE (Spin)</button>
+        </div>
+        
+        <div id="message" class="message">Ready to prompt...</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

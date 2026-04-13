@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 AI Token Casino 🎰</h1>
+            <p>Spin to achieve AGI! (or go bankrupt buying compute)</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="balance">Context Window: <span id="balance">1000</span> tokens</div>
+                <div class="bet">Spin Cost: <span id="bet">10</span> tokens</div>
+            </div>
+
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">🤖</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate (Spin)</button>
+            </div>
+
+            <div class="message-board">
+                <p id="message">System prompt loaded. Ready to generate.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Warning: May cause hallucinations and severe compute debt.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

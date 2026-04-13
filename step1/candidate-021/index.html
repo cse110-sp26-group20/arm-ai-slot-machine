@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Burner 3000</h1>
+            <p>Feed the context window!</p>
+        </header>
+
+        <div class="stats">
+            <div class="balance">
+                Tokens: <span id="token-balance">1000</span>
+            </div>
+            <div class="cost">
+                Cost per spin: 10 Tokens
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel" id="reel1">❓</div>
+            <div class="reel" id="reel2">❓</div>
+            <div class="reel" id="reel3">❓</div>
+        </div>
+
+        <div class="controls">
+            <button id="spin-button">Generate (Spin)</button>
+        </div>
+
+        <div class="message-container">
+            <p id="message">Insert tokens to start hallucinating.</p>
+        </div>
+
+        <div class="paytable">
+            <h3>Paytable (Context Rewards)</h3>
+            <ul>
+                <li>🚀🚀🚀 AGI Achieved: +500 Tokens</li>
+                <li>🧠🧠🧠 Big Brain Energy: +200 Tokens</li>
+                <li>🤖🤖🤖 Agent Swarm: +100 Tokens</li>
+                <li>💸💸💸 VC Funding: +50 Tokens</li>
+                <li>📉📉📉 Model Collapse: +10 Tokens</li>
+                <li>🗑️🗑️🗑️ Garbage Output: +5 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

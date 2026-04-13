@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 The Great LLM Casino 🎰</h1>
+            <p>Spend your context window wisely!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="stats">
+                <div class="balance">
+                    Context Tokens: <span id="token-balance">10000</span>
+                </div>
+                <div class="cost">
+                    Cost per Inference: <span id="spin-cost">100</span>
+                </div>
+            </div>
+
+            <div class="reels">
+                <div class="reel" id="reel-1">
+                    <div class="symbols"><div>🤖</div></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbols"><div>🧠</div></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbols"><div>💽</div></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate (Spin)</button>
+            </div>
+
+            <div class="message" id="message">
+                Insert prompt to begin...
+            </div>
+        </main>
+        
+        <div class="paytable">
+            <h3>Paytable (Token ROI)</h3>
+            <ul>
+                <li>💽 💽 💽 : AGI Achieved (+5000)</li>
+                <li>🧠 🧠 🧠 : Big Brain Energy (+2000)</li>
+                <li>🤖 🤖 🤖 : Useful Agent (+1000)</li>
+                <li>💸 💸 💸 : OpenAI Bill (+100)</li>
+                <li>🔥 🔥 🔥 : Server Meltdown (-500)</li>
+                <li>🗑️ 🗑️ 🗑️ : Complete Hallucination (0)</li>
+                <li>Any 2 matching (Except 🔥/🗑️): Partial Coherence (+50)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

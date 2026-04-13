@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Slot Machine - Token Burner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 The Great Token Burner 🎰</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Context Window:</span>
+                <span id="balance" class="value">1000</span> <span class="label">Tokens</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><span class="symbol">❓</span></div>
+                <div class="reel" id="reel2"><span class="symbol">❓</span></div>
+                <div class="reel" id="reel3"><span class="symbol">❓</span></div>
+            </div>
+            <div class="message-board">
+                <p id="message">System Prompt: Awaiting user input...</p>
+            </div>
+            <button id="spin-btn" class="spin-button">Generate Output (-10 Tokens)</button>
+        </div>
+        
+        <div class="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>🧠 🧠 🧠 - AGI Achieved (Jackpot: 500)</li>
+                <li>🔋 🔋 🔋 - GPU Secured (Win: 200)</li>
+                <li>🤖 🤖 🤖 - Automated (Win: 100)</li>
+                <li>Any 2 matching - Hallucination (Win: 20)</li>
+                <li>🗑️ - Garbage In, Garbage Out (Lose Extra 5 per garbage if no win)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
