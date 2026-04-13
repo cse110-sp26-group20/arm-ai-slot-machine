@@ -3,7 +3,7 @@
 |Field|Notes|
 |:--|:--|
 |Run ID|candidate-027|
-|Timestamp||
+|Timestamp|1775948940|
 |Model + version string|gemini-3.1-pro-preview|
 |Input tokens|20,758|
 |Output tokens|3,605|
