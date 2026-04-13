@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend tokens, hallucinate, repeat.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="scoreboard">
+                <div class="balance-display">Tokens: <span id="balance">1000</span></div>
+                <div class="bet-display">Cost per prompt: <span id="bet">100</span></div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">💻</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate Response (Spin)</button>
+            </div>
+
+            <div class="message-area" id="message">
+                Ready to waste compute?
+            </div>
+        </main>
+        
+        <div class="legend">
+            <h3>Paytable</h3>
+            <ul>
+                <li>💰💰💰 : +1000 Tokens (AGI Achieved)</li>
+                <li>🧠🧠🧠 : +500 Tokens (Perfect Prompt)</li>
+                <li>🤖🤖🤖 : +250 Tokens (Good Output)</li>
+                <li>💻💻💻 : +150 Tokens (Compute Secured)</li>
+                <li>📉📉📉 : -50 Tokens (Context Limit Reached)</li>
+                <li>🚨🚨🚨 : -100 Tokens (Total Hallucination)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

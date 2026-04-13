@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend your context window wisely!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="tokens">Context Tokens: <span id="token-count">1000</span></div>
+                <div class="cost">Cost per Generation: 50</div>
+            </div>
+
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button">Generate (Spin)</button>
+            </div>
+
+            <div class="message-box">
+                <p id="message">Waiting for prompt...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Warning: May produce hallucinations. Not financial advice.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
