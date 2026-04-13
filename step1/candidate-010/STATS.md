@@ -10,7 +10,7 @@
 |Total tokens|28,869|
 |Wall-clock time (s)|0m 53.9s|
 |Files produced|"index.html", "script.js", "style.css"|
-|Lines of code|421|
+|Lines of code|340|
 |Runs in browser?|YES|
 |App Quality Notes||
 |Code Quality Notes||
