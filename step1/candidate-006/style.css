@@ -1,0 +1,188 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --primary-color: #38bdf8;
+    --secondary-color: #818cf8;
+    --accent-color: #f43f5e;
+    --machine-bg: #1e293b;
+    --reel-bg: #cbd5e1;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    margin: 0 0 0.5rem 0;
+}
+
+p {
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#balance {
+    color: #4ade80;
+}
+
+#cost {
+    color: var(--accent-color);
+}
+
+.slot-machine {
+    background-color: var(--machine-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 4px solid #334155;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.reels-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    border: inset 4px #475569;
+}
+
+.reel {
+    width: 80px;
+    height: 100px;
+    background-color: var(--reel-bg);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 10px 10px rgba(0,0,0,0.3), inset 0 -10px 10px rgba(0,0,0,0.3);
+}
+
+.symbol {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s linear;
+}
+
+.message-board {
+    background-color: #000;
+    color: #4ade80;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #064e3b;
+    min-height: 24px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button {
+    background: linear-gradient(to bottom, var(--primary-color), #0284c7);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255,255,255,0.3);
+    transition: transform 0.1s, box-shadow 0.1s;
+    width: 80%;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
+button:disabled {
+    background: #475569;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.paytable {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.paytable h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.paytable ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paytable li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    padding-bottom: 0.25rem;
+}

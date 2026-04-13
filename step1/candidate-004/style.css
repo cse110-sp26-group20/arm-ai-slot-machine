@@ -1,0 +1,130 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #00ffcc;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.subtitle {
+    color: #aaaaaa;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.balance-container {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #00ffcc;
+}
+
+#balance {
+    font-weight: bold;
+    color: #ff00ff;
+}
+
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.slot {
+    background: #2a2a2a;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px #000;
+    transition: transform 0.1s;
+}
+
+.slot.spinning {
+    animation: blur 0.1s infinite;
+}
+
+@keyframes blur {
+    0% { filter: blur(2px); transform: translateY(-5px); }
+    50% { filter: blur(4px); transform: translateY(5px); }
+    100% { filter: blur(2px); transform: translateY(-5px); }
+}
+
+button {
+    background-color: #00ffcc;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+button:hover {
+    background-color: #00e6b8;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #555;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    height: 1.5em;
+    color: #ffaa00;
+}
+
+.paytable {
+    margin-top: 30px;
+    text-align: left;
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.paytable h3 {
+    margin-top: 0;
+    color: #00ffcc;
+    text-align: center;
+}
+
+.paytable p {
+    margin: 5px 0;
+}
