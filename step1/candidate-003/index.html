@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 The AI Token Extractor 🎰</h1>
+            <p>Spend your context window. Win hallucinatory rewards.</p>
+        </header>
+        
+        <main class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel3"><div class="symbol">🤖</div></div>
+            </div>
+            
+            <div class="controls">
+                <button id="spinButton" class="spin-btn">GENERATE (Cost: 10 Tokens)</button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <span>Balance:</span>
+                    <span id="balance">1000</span> Tokens
+                </div>
+                <div class="stat-box">
+                    <span>Last Win:</span>
+                    <span id="lastWin">0</span> Tokens
+                </div>
+            </div>
+            
+            <div id="message" class="message">System Ready. Awaiting Input.</div>
+        </main>
+        
+        <div class="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>🤖🤖🤖 - AGI Achieved: 500 Tokens</li>
+                <li>🧠🧠🧠 - Deep Learning: 200 Tokens</li>
+                <li>💾💾💾 - Data Scraped: 100 Tokens</li>
+                <li>💸💸💸 - VC Funding: 50 Tokens</li>
+                <li>📉📉📉 - Gradient Descent: 20 Tokens</li>
+                <li>🐛🐛🐛 - Hallucination: 0 Tokens (You just lose)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

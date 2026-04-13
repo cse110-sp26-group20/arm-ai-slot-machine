@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 The AI Hype Slot Machine 🎰</h1>
+            <p>Will you achieve AGI or just run out of compute?</p>
+        </header>
+
+        <div class="stats">
+            <div class="tokens">
+                Compute Tokens: <span id="token-count">1000</span> 🪙
+            </div>
+            <div class="message" id="message">
+                Ready to burn some GPU cycles? Insert tokens!
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel" id="reel-1">
+                <div class="symbol">🤖</div>
+            </div>
+            <div class="reel" id="reel-2">
+                <div class="symbol">🤖</div>
+            </div>
+            <div class="reel" id="reel-3">
+                <div class="symbol">🤖</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="bet-controls">
+                <button id="bet-down">-</button>
+                <span id="bet-amount">10</span>
+                <button id="bet-up">+</button>
+                <span>Tokens per spin</span>
+            </div>
+            <button id="spin-btn">SPIN (Train Model)</button>
+        </div>
+        
+        <div class="legend">
+            <h3>Paytable</h3>
+            <ul>
+                <li>🧠 🧠 🧠 - AGI! Jackpot (x100)</li>
+                <li>🚀 🚀 🚀 - VC Funding (x50)</li>
+                <li>🤖 🤖 🤖 - Good Bot (x20)</li>
+                <li>🔮 🔮 🔮 - Hallucination (x10)</li>
+                <li>💸 💸 💸 - Cloud Bill (-100)</li>
+                <li>Any Two Match - Small Hype (x2)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 AI Token Guzzler 🎰</h1>
+        <p class="subtitle">Burn your context window for a chance to win... more tokens!</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span>Tokens Available:</span>
+                <span id="token-count">1000</span>
+            </div>
+            <div class="stat-box">
+                <span>Cost per prompt:</span>
+                <span>10</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel" id="reel1">🤖</div>
+            <div class="reel" id="reel2">🤖</div>
+            <div class="reel" id="reel3">🤖</div>
+        </div>
+
+        <button id="spin-btn">Generate (Spin)</button>
+
+        <div class="message-area">
+            <p id="message">System Prompt: Ready to consume compute.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

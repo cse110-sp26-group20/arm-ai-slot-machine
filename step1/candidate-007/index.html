@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 AI Hype Machine 🎰</h1>
+            <p class="subtitle">Burn your compute credits to reach AGI!</p>
+        </header>
+
+        <main>
+            <div class="stats">
+                <div class="stat-box">
+                    <span>Compute Credits:</span>
+                    <span id="credits">1000</span>
+                </div>
+                <div class="stat-box">
+                    <span>Burn Rate:</span>
+                    <span>100 / Spin</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">🤖</div>
+                    <div class="reel" id="reel2">🤖</div>
+                    <div class="reel" id="reel3">🤖</div>
+                </div>
+                <div class="machine-overlay"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spinBtn" class="spin-btn">SPIN (Generate)</button>
+            </div>
+
+            <div class="message-board">
+                <p id="message">Insert VC funding to start...</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

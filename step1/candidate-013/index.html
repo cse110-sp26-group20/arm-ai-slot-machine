@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 The LLM Token Guzzler 🎰</h1>
+            <p>Spend your context window on useless generations!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="balance-display">
+                <span>Context Window: </span>
+                <span id="balance">8192</span> <span class="unit">Tokens</span>
+            </div>
+            
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">Generate Response (Cost: 100 Tokens)</button>
+            </div>
+
+            <div class="message-area" id="message">
+                Ready to waste some compute?
+            </div>
+        </main>
+
+        <section class="logs">
+            <h2>Terminal Output</h2>
+            <div class="terminal" id="terminal-log">
+                > System initialized. Awaiting prompts...<br>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
