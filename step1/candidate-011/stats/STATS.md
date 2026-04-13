@@ -12,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|369|
 |Runs in browser?|YES|
-|App Quality Notes||
+|App Quality Notes|Smooth animation: scrolling without vibration, slots stop one by one. Interesting items in the paytable. Good color scheme (teal and fuschia). Most of the time you get "Incoherent response. Tokens wasted." Layout does not remove or resize when the button is pushed.|
 |Code Quality Notes||

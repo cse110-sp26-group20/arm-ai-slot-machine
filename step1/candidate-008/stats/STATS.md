@@ -12,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|421|
 |Runs in browser?|YES|
-|App Quality Notes||
+|App Quality Notes|The slots stop one by one. Messages are given on each spin, and there are a decent number of different messages. Layout does not remove or resize when the button is pushed.|
 |Code Quality Notes||

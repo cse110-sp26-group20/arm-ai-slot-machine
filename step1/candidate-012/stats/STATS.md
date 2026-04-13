@@ -12,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|316|
 |Runs in browser?|YES|
-|App Quality Notes||
+|App Quality Notes|Scrolling plus vibration animation. Mostly neon green color scheme and small window impede visual draw. Interesting variety of messages (both after and during spins). Layout is resized when the button is pushed.|
 |Code Quality Notes||

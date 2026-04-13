@@ -12,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|310|
 |Runs in browser?|YES|
-|App Quality Notes||
+|App Quality Notes|Animation has vibration but no scrolling. Messages are given as terminal output (interesting design but not as readable). Layout does not shift or resize when the button is pushed.|
 |Code Quality Notes||

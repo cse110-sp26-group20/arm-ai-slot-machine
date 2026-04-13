@@ -12,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|300|
 |Runs in browser?|YES|
-|App Quality Notes||
+|App Quality Notes|Poor slot animation: only vibrates instead of scrolling. Message is red on a loss and green on a win. Layout is resized when the button is pushed.|
 |Code Quality Notes||
