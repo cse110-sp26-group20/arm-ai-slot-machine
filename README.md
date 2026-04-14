@@ -1,35 +1,45 @@
-# Demo and Instruction
+# The One Arm AI Slot Machine Experiment
 
-1). Install [Gemini Code Assist](https://github.com/google-gemini/gemini-cli)
+## Demo and instructions
 
-2). Terminal:
+1. Install the [Gemini CLI](https://github.com/google-gemini/gemini-cli) on your local machine.
+
+2. Run the following command in your terminal inside of a candidate folder (e.g. `step1/candidate-001`):
+
 ```bash
->  gemini -m gemini-3.1-pro-preview --yolo
+gemini -m gemini-3.1-pro-preview --yolo
 ```
 
-3). Prompt: Create a slot machine app that uses vanilla web technology like HTML, CSS, JavaScript, and platform APIs. The slot machine should make fun of AI, as in you are winning tokens and spending tokens.
+3. Use the following prompt:
+
+```
+Create a slot machine app that uses vanilla web technology like HTML, CSS, JavaScript, and platform APIs. The slot machine should make fun of AI, as in you are winning tokens and spending tokens.
+```
 
 Then you will get
 ![step 1](./img/step1-1.png)
 
-4). Stats and token
+4. Obtain session and token statistics
+
 ```bash
 /stats
 /stats model
 ```
+
 ![step 2](./img/step1-2.png)
 ![step 3](./img/step1-3.png)
 
-5). Measure
+5. Measure
 
-Add the info to the `STATS.md`
+Add the obtained information to the corresponding `STATS.md` file.
 
 ![step 4](./img/step1-4.png)
 
-# Timestamp
-Read your gemini's log files. Usage: `python timestamp.py <start_number> <end_number>`
+#### Obtaining session timestamps
 
-Example:
+Read your Gemini CLI's log files by running `python timestamp.py <start_number> <end_number>`
+
+Example usage:
 
 ```python
 python timestamp.py 31 37
@@ -46,4 +56,4 @@ oject/cse110/arm-al-slot-machine/step1/candidate-030/index.html.
 '''
 ```
 
-Using this time: `2026-04-12T11:25:00-07:00`
+We are using these ISO-8601-formatted timestamps for our runs: `2026-04-12T11:25:00-07:00`
