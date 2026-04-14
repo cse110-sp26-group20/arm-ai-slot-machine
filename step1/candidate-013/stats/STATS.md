@@ -1,0 +1,16 @@
+# 013-Run's Stats
+
+|Field|Notes|
+|:--|:--|
+|Run ID|candidate-013|
+|Timestamp|2026-04-12T20:31:26-07:00|
+|Model + version string|gemini-3.1-pro-preview|
+|Input tokens|15,772|
+|Output tokens|3,043|
+|Total tokens|30,636|
+|Wall-clock time (s)|2m 3s|
+|Files produced|"index.html", "script.js", "style.css"|
+|Lines of code|310|
+|Runs in browser?|YES|
+|App Quality Notes|Animation has vibration but no scrolling. Messages are given as terminal output (interesting design but not as readable). Layout does not shift or resize when the button is pushed.|
+|Code Quality Notes|Minimal comments. Styling is fairly consistent. Some colors are defined in style.css but not all of them.|
