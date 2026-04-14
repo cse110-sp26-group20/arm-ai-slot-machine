@@ -3,34 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Token Slot Machine</title>
+    <title>AI Token Casino</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="casino-wrapper">
         <header>
-            <h1>🎰 The LLM Token Guzzler 🎰</h1>
+            <h1 class="neon-text">🎰 The LLM Token Guzzler 🎰</h1>
             <p>Spend your context window on useless generations!</p>
         </header>
 
         <main class="slot-machine">
-            <div class="balance-display">
-                <span>Context Window: </span>
-                <span id="balance">8192</span> <span class="unit">Tokens</span>
+            <div class="top-bar">
+                <div class="balance-display">
+                    <span>Context Window: </span>
+                    <span id="balance">8192</span> <span class="unit">Tokens</span>
+                </div>
+                <div class="streak-display">
+                    <span>Streak: <span id="streak">0</span> 🔥</span>
+                    <div id="multiplier" class="hidden">x1</div>
+                </div>
             </div>
             
-            <div class="reels">
-                <div class="reel" id="reel1">🤖</div>
-                <div class="reel" id="reel2">🤖</div>
-                <div class="reel" id="reel3">🤖</div>
+            <div class="reels-container">
+                <div class="reels">
+                    <div class="reel" id="reel1"><div class="reel-inner">🤖</div></div>
+                    <div class="reel" id="reel2"><div class="reel-inner">🤖</div></div>
+                    <div class="reel" id="reel3"><div class="reel-inner">🤖</div></div>
+                </div>
             </div>
 
             <div class="controls">
-                <button id="spin-btn">Generate Response (Cost: 100 Tokens)</button>
+                <div class="bet-controls">
+                    <button id="decrease-bet" class="bet-btn">-</button>
+                    <div class="bet-display">Bet: <span id="current-bet">100</span></div>
+                    <button id="increase-bet" class="bet-btn">+</button>
+                </div>
+                <button id="spin-btn" class="spin-btn">Generate Response</button>
+                <button id="reset-btn" class="hidden action-btn">Beg VC for more Tokens</button>
+            </div>
+            
+            <div class="secondary-controls">
+                <button id="payouts-btn" class="action-btn">View Payouts & Docs</button>
             </div>
 
             <div class="message-area" id="message">
-                Ready to waste some compute?
+                Ready to waste some compute? Click Generate!
             </div>
         </main>
 
@@ -41,6 +59,17 @@
             </div>
         </section>
     </div>
+
+    <!-- Payouts Modal -->
+    <div id="payouts-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>API Pricing & Payouts</h2>
+            <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem;">Payouts are multiplied by your bet amount.</p>
+            <div id="payouts-list"></div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

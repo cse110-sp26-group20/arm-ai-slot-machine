@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Token Gacha</title>
+    <title>AI Casino Gacha</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>AI Token Gacha</h1>
-            <p class="subtitle">Will you achieve AGI or go bankrupt on API calls?</p>
+            <h1 class="casino-title">AI Casino</h1>
+            <p class="subtitle">Spin for AGI, risk the GPU shortage!</p>
         </header>
 
+        <div class="top-controls">
+            <button id="paytable-btn" class="control-btn">ℹ️ Payouts</button>
+            <button id="reset-btn" class="control-btn hidden">🔄 Reset Tokens</button>
+        </div>
+
         <main class="slot-machine">
+            <div class="casino-lights"></div>
+            
             <div class="status-bar">
                 <div class="stat">
-                    <span class="label">Compute Tokens:</span>
+                    <span class="label">Tokens:</span>
                     <span class="value" id="token-balance">1000</span>
                 </div>
                 <div class="stat">
-                    <span class="label">Cost/Spin:</span>
-                    <span class="value cost">10</span>
+                    <span class="label">Win Streak:</span>
+                    <span class="value streak" id="streak-counter">0</span>
                 </div>
             </div>
 
@@ -39,24 +46,38 @@
             </div>
 
             <div class="message-board" id="message-board">
-                Insert tokens to query the Oracle.
+                Insert prompt to query the Oracle.
+            </div>
+
+            <div class="bet-controls">
+                <button id="bet-minus" class="bet-btn">-</button>
+                <div class="current-bet-display">
+                    <span class="label">Bet:</span>
+                    <span id="current-bet" class="value cost">10</span>
+                </div>
+                <button id="bet-plus" class="bet-btn">+</button>
+                <button id="bet-max" class="bet-btn max">MAX</button>
             </div>
 
             <div class="controls">
-                <button id="spin-btn" class="spin-btn">GENERATE (SPIN)</button>
+                <button id="spin-btn" class="spin-btn">SPIN (GENERATE)</button>
             </div>
         </main>
 
-        <div class="paytable">
-            <h3>Reward Function</h3>
-            <ul>
-                <li>🤖🤖🤖 : +100 Tokens (AGI Achieved!)</li>
-                <li>🧠🧠🧠 : +50 Tokens (Big Brain Context)</li>
-                <li>💸💸💸 : +25 Tokens (VC Funding Secured)</li>
-                <li>🔋🔋🔋 : +15 Tokens (Compute Granted)</li>
-                <li>⚠️⚠️⚠️ : -50 Tokens (Hallucination Penalty)</li>
-                <li>Any 2 Matches: +5 Tokens (Partial Generation)</li>
-            </ul>
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h3>Payouts (Multiplier)</h3>
+                <ul>
+                    <li>🤖🤖🤖 : 10x Bet (AGI Achieved!)</li>
+                    <li>🧠🧠🧠 : 5x Bet (Sentience Unlocked)</li>
+                    <li>💸💸💸 : 3x Bet (Series A Secured)</li>
+                    <li>🔋🔋🔋 : 2x Bet (H100 GPUs Acquired)</li>
+                    <li>⚠️⚠️⚠️ : -5x Bet (Devastating Hallucination!)</li>
+                    <li>Any 2 Matches: 0.5x Bet (Copilot Autocomplete)</li>
+                </ul>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--neon-magenta);">* Streaks multiply your wins! (Streak x 0.1 extra)</p>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
