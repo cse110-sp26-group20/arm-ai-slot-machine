@@ -8,32 +8,35 @@ const svgs = {
     'SCATTER': `<svg viewBox="0 0 100 100"><polygon points="50,10 60,35 90,40 65,60 75,90 50,75 25,90 35,60 10,40 40,35" fill="#ffaa00" filter="drop-shadow(0 0 10px #ffaa00)"/><text x="50" y="55" font-size="16" text-anchor="middle" fill="#000" font-weight="bold">SCAT</text></svg>`
 };
 
-const symbolWeights = {
-    '7': 5,
-    'BAR': 10,
-    'BELL': 15,
-    'DIAMOND': 20,
-    'CHERRY': 25,
-    'WILD': 5,
-    'SCATTER': 6
-};
-
+const symbolWeights = { '7': 5, 'BAR': 10, 'BELL': 15, 'DIAMOND': 20, 'CHERRY': 25, 'WILD': 5, 'SCATTER': 6 };
 const totalWeight = Object.values(symbolWeights).reduce((a, b) => a + b, 0);
 
-const payTable = {
-    '7': 50,
-    'BAR': 20,
-    'BELL': 10,
-    'DIAMOND': 5,
-    'CHERRY': 2
-};
+const payTable = { '7': 50, 'BAR': 20, 'BELL': 10, 'DIAMOND': 5, 'CHERRY': 2 };
 
 const paylines = [
-    [{c:0, r:1}, {c:1, r:1}, {c:2, r:1}], // 0: middle
-    [{c:0, r:0}, {c:1, r:0}, {c:2, r:0}], // 1: top
-    [{c:0, r:2}, {c:1, r:2}, {c:2, r:2}], // 2: bottom
-    [{c:0, r:0}, {c:1, r:1}, {c:2, r:2}], // 3: diag 1
-    [{c:0, r:2}, {c:1, r:1}, {c:2, r:0}]  // 4: diag 2
+    [{c:0, r:1}, {c:1, r:1}, {c:2, r:1}],
+    [{c:0, r:0}, {c:1, r:0}, {c:2, r:0}],
+    [{c:0, r:2}, {c:1, r:2}, {c:2, r:2}],
+    [{c:0, r:0}, {c:1, r:1}, {c:2, r:2}],
+    [{c:0, r:2}, {c:1, r:1}, {c:2, r:0}]
+];
+
+const winJokes = [
+    "ChatGPT could have predicted that win! 🤖",
+    "Your luck is better than my training data! 🧠",
+    "Did you use an LLM to hack these slots? 💻",
+    "Even a neural network couldn't find a pattern here, but you won! 🎉",
+    "AGI achieved: A Great Income! 💰",
+    "Prompt engineering at its finest! ✨"
+];
+
+const lossJokes = [
+    "My AI model predicted you'd lose... and I was right. 📉",
+    "Have you tried turning it off and on again? Oh wait, I'm an AI. 🤡",
+    "You just hallucinated that win. Back to reality! 🛑",
+    "Error 404: Luck not found. Please try another prompt. 🔍",
+    "I've seen smarter decisions from a random number generator. 🎲",
+    "Your loss has been added to my training data to teach others what NOT to do. 🤖"
 ];
 
 let tokens = 1000;
@@ -46,6 +49,12 @@ let freeSpins = 0;
 let audioCtx;
 let anticipationOsc = null;
 
+// Upgrades
+let luckMultiplier = 1;
+let moneyMultiplier = 1;
+let hasCosmetics = false;
+let globalVolume = 1.0;
+
 const els = {
     tokenCount: document.getElementById('token-count'),
     betAmount: document.getElementById('bet-amount'),
@@ -55,7 +64,8 @@ const els = {
     bigWinOverlay: document.getElementById('big-win-overlay'),
     rollupCounter: document.getElementById('rollup-counter'),
     fsDisplay: document.getElementById('fs-display'),
-    fsCount: document.getElementById('fs-count')
+    fsCount: document.getElementById('fs-count'),
+    aiSpeech: document.getElementById('ai-speech-text')
 };
 
 function initAudio() {
@@ -71,19 +81,36 @@ function playTone(freq, type, duration, vol = 0.1) {
     gain.connect(audioCtx.destination);
     osc.type = type;
     osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+    gain.gain.setValueAtTime(vol * globalVolume, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
     osc.start();
     osc.stop(audioCtx.currentTime + duration);
 }
 
+function getSymbolValue(s) {
+    if (s === 'WILD') return 50;
+    if (s === 'SCATTER') return 0;
+    return payTable[s] || 0;
+}
+
 function getRandomSymbol() {
     let r = Math.random() * totalWeight;
+    let s1 = 'CHERRY';
     for (let s in symbolWeights) {
-        if (r < symbolWeights[s]) return s;
+        if (r < symbolWeights[s]) { s1 = s; break; }
         r -= symbolWeights[s];
     }
-    return 'CHERRY';
+    
+    if (luckMultiplier > 1 && Math.random() < 0.5) {
+        let r2 = Math.random() * totalWeight;
+        let s2 = 'CHERRY';
+        for (let s in symbolWeights) {
+            if (r2 < symbolWeights[s]) { s2 = s; break; }
+            r2 -= symbolWeights[s];
+        }
+        return getSymbolValue(s1) > getSymbolValue(s2) ? s1 : s2;
+    }
+    return s1;
 }
 
 function isMatch(s1, s2) {
@@ -112,18 +139,15 @@ function generateGrid() {
         }
     }
     
-    // Near Miss Injection Logic
     let ant = checkAnticipationForGrid(grid);
     if (ant.has && Math.random() < 0.6) {
         let line = ant.lines[0];
         let sym = line.symbol;
         if (sym === '7' || sym === 'BAR') {
             let targetRow = line.rowOnReel2;
-            // Prevent actual win on that line
             if (grid[2][targetRow] === sym || grid[2][targetRow] === 'WILD') {
                 grid[2][targetRow] = 'CHERRY';
             }
-            // Put sym adjacent to create a "Near Miss"
             let nearMissRow = targetRow === 0 ? 1 : targetRow - 1;
             grid[2][nearMissRow] = sym;
         }
@@ -148,12 +172,21 @@ function updateFreeSpins() {
 
 function drawNeonLines(wonLines) {
     els.paylinesOverlay.innerHTML = '';
-    const colXs = ['16.66%', '50%', '83.33%'];
-    const rowYs = ['16.66%', '50%', '83.33%'];
+    const svgRect = els.paylinesOverlay.getBoundingClientRect();
     
     wonLines.forEach(l => {
         const p = paylines[l];
-        let d = `M ${colXs[p[0].c]} ${rowYs[p[0].r]} L ${colXs[p[1].c]} ${rowYs[p[1].r]} L ${colXs[p[2].c]} ${rowYs[p[2].r]}`;
+        
+        let coords = p.map(pos => {
+            const cell = document.getElementById(`c${pos.c}-r${pos.r}`);
+            const rect = cell.getBoundingClientRect();
+            return {
+                x: rect.left - svgRect.left + rect.width / 2,
+                y: rect.top - svgRect.top + rect.height / 2
+            };
+        });
+        
+        let d = `M ${coords[0].x} ${coords[0].y} L ${coords[1].x} ${coords[1].y} L ${coords[2].x} ${coords[2].y}`;
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', d);
         path.setAttribute('stroke', document.body.classList.contains('free-spins') ? '#00ffff' : 'var(--neon-pink)');
@@ -192,7 +225,7 @@ function spinCol(col, duration, isAnticipation) {
         
         if (isAnticipation) {
             let progress = (now - startTime) / duration;
-            interval = 50 + progress * 150; // Slow down over time
+            interval = 50 + progress * 150;
         }
         
         for(let r=0; r<3; r++) {
@@ -236,14 +269,19 @@ function startAnticipationSound() {
     gain.connect(audioCtx.destination);
     anticipationOsc.type = 'triangle';
     anticipationOsc.frequency.setValueAtTime(300, audioCtx.currentTime);
-    anticipationOsc.frequency.linearRampToValueAtTime(1200, audioCtx.currentTime + 3); // 3 seconds longer
-    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    anticipationOsc.frequency.linearRampToValueAtTime(1200, audioCtx.currentTime + 3);
+    gain.gain.setValueAtTime(0.05 * globalVolume, audioCtx.currentTime);
     anticipationOsc.start();
 }
 
 function startSpin() {
     initAudio();
-    if (isSpinning) return;
+    if (isSpinning) {
+        // Skip animation
+        [0, 1, 2].forEach(col => { if(!stopRequested[col]) stopRequested[col] = true; });
+        return;
+    }
+    
     if (freeSpins === 0 && tokens < currentBet) {
         els.message.textContent = "Not enough credits!";
         els.message.style.color = "var(--danger)";
@@ -261,11 +299,12 @@ function startSpin() {
     els.paylinesOverlay.innerHTML = '';
     els.message.textContent = "Good luck!";
     els.message.style.color = "var(--text-color)";
+    if(hasCosmetics) els.aiSpeech.textContent = "Processing luck...";
     
     isSpinning = true;
     stopRequested = [false, false, false];
     activeReels = 3;
-    els.spinBtn.disabled = true;
+    els.spinBtn.textContent = "SKIP";
     
     generateGrid();
     
@@ -283,7 +322,7 @@ function startSpin() {
 
 function evaluateWin() {
     isSpinning = false;
-    els.spinBtn.disabled = false;
+    els.spinBtn.textContent = "SPIN";
     
     let totalWin = 0;
     let wonLines = [];
@@ -316,29 +355,33 @@ function evaluateWin() {
         }
     }
     
-    if (document.body.classList.contains('free-spins')) {
-        totalWin *= 3;
-    }
+    if (document.body.classList.contains('free-spins')) totalWin *= 3;
+    totalWin = Math.floor(totalWin * moneyMultiplier);
     
     if (totalWin > 0) {
         drawNeonLines(wonLines);
+        let joke = winJokes[Math.floor(Math.random() * winJokes.length)];
+        
         if (totalWin >= currentBet * 10) {
-            triggerBigWin(totalWin);
+            if(hasCosmetics) els.aiSpeech.textContent = "JACKPOT! " + joke;
+            triggerBigWin(totalWin, joke);
         } else {
             tokens += totalWin;
             updateTokens();
-            els.message.textContent = `Won ${totalWin} credits!`;
+            els.message.textContent = `Won ${totalWin}! ${joke}`;
             els.message.style.color = "var(--success)";
+            if(hasCosmetics) els.aiSpeech.textContent = joke;
             playTone(600, 'square', 0.5, 0.1);
             
-            // Allow scatter check after small win display
             if (scatters >= 3) {
                 setTimeout(triggerFreeSpinsMode, 1500);
             }
         }
     } else {
-        els.message.textContent = "Try again!";
+        let joke = lossJokes[Math.floor(Math.random() * lossJokes.length)];
+        els.message.textContent = joke;
         els.message.style.color = "var(--text-color)";
+        if(hasCosmetics) els.aiSpeech.textContent = joke;
         if (scatters >= 3) {
             setTimeout(triggerFreeSpinsMode, 500);
         }
@@ -359,7 +402,7 @@ function triggerFreeSpinsMode() {
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(400, audioCtx.currentTime);
     osc.frequency.linearRampToValueAtTime(800, audioCtx.currentTime + 1);
-    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.1 * globalVolume, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 1);
     osc.start();
     osc.stop(audioCtx.currentTime + 1);
@@ -380,6 +423,14 @@ document.getElementById('bet-max').addEventListener('click', () => {
     initAudio();
     if(!isSpinning) { currentBet = Math.max(10, tokens); updateTokens(); }
 });
+document.getElementById('bet-reset').addEventListener('click', () => {
+    initAudio();
+    if(!isSpinning) { currentBet = 10; updateTokens(); }
+});
+
+document.getElementById('volume-slider').addEventListener('input', (e) => {
+    globalVolume = parseFloat(e.target.value);
+});
 
 [0, 1, 2].forEach(col => {
     document.getElementById(`stop-${col}`).addEventListener('click', () => {
@@ -388,6 +439,44 @@ document.getElementById('bet-max').addEventListener('click', () => {
             stopRequested[col] = true;
         }
     });
+});
+
+// Shop and Payouts Modals
+document.getElementById('shop-btn').addEventListener('click', () => document.getElementById('shop-modal').classList.remove('hidden'));
+document.getElementById('close-shop').addEventListener('click', () => document.getElementById('shop-modal').classList.add('hidden'));
+
+document.getElementById('payout-btn').addEventListener('click', () => document.getElementById('payout-modal').classList.remove('hidden'));
+document.getElementById('close-payout').addEventListener('click', () => document.getElementById('payout-modal').classList.add('hidden'));
+
+document.getElementById('buy-luck').addEventListener('click', (e) => {
+    if (tokens >= 500 && luckMultiplier === 1) {
+        tokens -= 500;
+        luckMultiplier = 1.5;
+        updateTokens();
+        e.target.textContent = "Bought";
+        e.target.disabled = true;
+    }
+});
+
+document.getElementById('buy-money').addEventListener('click', (e) => {
+    if (tokens >= 1000 && moneyMultiplier === 1) {
+        tokens -= 1000;
+        moneyMultiplier = 1.5;
+        updateTokens();
+        e.target.textContent = "Bought";
+        e.target.disabled = true;
+    }
+});
+
+document.getElementById('buy-cosmetic').addEventListener('click', (e) => {
+    if (tokens >= 200 && !hasCosmetics) {
+        tokens -= 200;
+        hasCosmetics = true;
+        document.getElementById('ai-cosmetic').classList.remove('hidden');
+        updateTokens();
+        e.target.textContent = "Bought";
+        e.target.disabled = true;
+    }
 });
 
 // Particle System setup
@@ -441,7 +530,7 @@ function updateParticles() {
     animFrame = requestAnimationFrame(updateParticles);
 }
 
-function triggerBigWin(amount) {
+function triggerBigWin(amount, joke) {
     els.bigWinOverlay.classList.add('active');
     updateParticles();
     
@@ -449,7 +538,6 @@ function triggerBigWin(amount) {
     let duration = 3000;
     let startTime = Date.now();
     
-    // Escalating sound
     let osc = null;
     let gain = null;
     if(audioCtx) {
@@ -460,7 +548,7 @@ function triggerBigWin(amount) {
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(200, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 3);
-        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1 * globalVolume, audioCtx.currentTime);
         osc.start();
         osc.stop(audioCtx.currentTime + 3);
     }
@@ -479,10 +567,9 @@ function triggerBigWin(amount) {
                 particles = [];
                 tokens += amount;
                 updateTokens();
-                els.message.textContent = `BIG WIN! ${amount} credits!`;
+                els.message.textContent = `BIG WIN! ${amount}! ${joke}`;
                 els.message.style.color = "var(--gold)";
                 
-                // Scatter check after Big Win
                 let scatters = 0;
                 for(let c=0; c<3; c++) for(let r=0; r<3; r++) if(grid[c][r] === 'SCATTER') scatters++;
                 if (scatters >= 3) {
@@ -498,7 +585,15 @@ function triggerBigWin(amount) {
     tick();
 }
 
-// Initial placeholders and display setup
+// Ensure resizing paylines on window resize
+window.addEventListener('resize', () => {
+    if (!isSpinning) {
+        // Redraw lines if any exist
+        // This is a bit tricky as we don't store wonLines, but it's okay if lines disappear on resize or we just let them misalign briefly
+        els.paylinesOverlay.innerHTML = '';
+    }
+});
+
 for(let c=0; c<3; c++) {
     for(let r=0; r<3; r++) {
         document.getElementById(`c${c}-r${r}`).innerHTML = svgs['7']; 
