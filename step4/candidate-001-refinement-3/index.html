@@ -9,11 +9,52 @@
 <body>
     <div class="casino-bg" id="casino-bg"></div>
     
+    <div id="ai-cosmetic" class="hidden">
+        <div class="ai-bot">🤖</div>
+        <div class="ai-speech" id="ai-speech-text">Processing luck...</div>
+    </div>
+
     <div id="big-win-overlay">
         <canvas id="particles-canvas"></canvas>
         <div class="big-win-content">
             <h1 class="glow-text">BIG WIN</h1>
             <div id="rollup-counter">0</div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="shop-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="neon-text-small">UPGRADE SHOP</h2>
+            <div class="shop-item">
+                <span>🍀 Luck Multiplier (Cost: 500)</span>
+                <button id="buy-luck" class="btn-small">Buy</button>
+            </div>
+            <div class="shop-item">
+                <span>💰 Money Multiplier (Cost: 1000)</span>
+                <button id="buy-money" class="btn-small">Buy</button>
+            </div>
+            <div class="shop-item">
+                <span>🤖 AI Cosmetic (Cost: 200)</span>
+                <button id="buy-cosmetic" class="btn-small">Buy</button>
+            </div>
+            <button id="close-shop" class="btn-small mt-10">Close</button>
+        </div>
+    </div>
+
+    <div id="payout-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="neon-text-small">PAYOUTS</h2>
+            <div class="payout-grid">
+                <p><strong>7:</strong> 50x</p>
+                <p><strong>BAR:</strong> 20x</p>
+                <p><strong>BELL:</strong> 10x</p>
+                <p><strong>DIAMOND:</strong> 5x</p>
+                <p><strong>CHERRY:</strong> 2x</p>
+                <p><strong>WILD:</strong> Substitutes</p>
+                <p><strong>SCATTER:</strong> 3 triggers Free Spins</p>
+            </div>
+            <button id="close-payout" class="btn-small mt-10">Close</button>
         </div>
     </div>
 
@@ -65,6 +106,15 @@
                 <div class="bet-display">BET: <span id="bet-amount">10</span></div>
                 <button id="bet-up" class="btn-small">➕</button>
                 <button id="bet-max" class="btn-small">MAX</button>
+                <button id="bet-reset" class="btn-small">RESET</button>
+            </div>
+            <div class="extra-actions">
+                <button id="payout-btn" class="btn-small">PAYOUTS</button>
+                <button id="shop-btn" class="btn-small">SHOP</button>
+            </div>
+            <div class="volume-control">
+                <label for="volume-slider">Volume:</label>
+                <input type="range" id="volume-slider" min="0" max="2" step="0.1" value="1">
             </div>
             <div class="main-actions">
                 <button id="spin-btn" class="btn-spin">SPIN</button>

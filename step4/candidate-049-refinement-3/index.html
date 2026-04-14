@@ -16,7 +16,12 @@
 
         <div class="top-controls">
             <button id="paytable-btn" class="control-btn">ℹ️ Payouts</button>
+            <button id="shop-btn" class="control-btn">🛒 Shop</button>
             <button id="reset-btn" class="control-btn hidden">🔄 Reset Tokens</button>
+            <div class="volume-control" style="display: flex; align-items: center; gap: 0.5rem; background: #1f2937; padding: 0.5rem; border-radius: 0.25rem; border: 1px solid var(--neon-cyan);">
+                <label for="volume-slider" style="font-size: 1.2rem;">🔊</label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" style="width: 80px;">
+            </div>
         </div>
 
         <main class="slot-machine">
@@ -66,6 +71,7 @@
                     <span id="current-bet" class="value cost">10</span>
                 </div>
                 <button id="bet-plus" class="bet-btn">+</button>
+                <button id="bet-reset" class="bet-btn" style="font-size: 0.8rem; font-weight: bold;">MIN</button>
                 <button id="bet-max" class="bet-btn max">MAX</button>
             </div>
 
@@ -73,6 +79,30 @@
                 <button id="spin-btn" class="spin-btn">SPIN</button>
             </div>
         </main>
+
+        <div id="shop-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-shop" class="close">&times;</span>
+                <h3>Upgrade Shop</h3>
+                <div class="shop-items" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-cyan);">
+                        <h4 style="color: var(--neon-cyan); margin-bottom: 0.5rem;">Luck Multiplier</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">Increases chance of rare symbols.</p>
+                        <button id="buy-luck" class="control-btn">Buy for 500</button>
+                    </div>
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-green);">
+                        <h4 style="color: var(--neon-green); margin-bottom: 0.5rem;">Money Multiplier</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">+50% to all wins.</p>
+                        <button id="buy-money" class="control-btn">Buy for 1000</button>
+                    </div>
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-magenta);">
+                        <h4 style="color: var(--neon-magenta); margin-bottom: 0.5rem;">AI Cosmetic</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">Unlock Cyber-Bot Assistant.</p>
+                        <button id="buy-cosmetic" class="control-btn">Buy for 300</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="paytable-modal" class="modal hidden">
             <div class="modal-content">

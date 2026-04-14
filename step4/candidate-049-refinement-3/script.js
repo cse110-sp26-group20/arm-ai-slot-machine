@@ -24,6 +24,26 @@ let balance = 1000;
 let streak = 0;
 let freeSpins = 0;
 
+let globalVolume = 0.5;
+let luckLevel = 0;
+let moneyMultiplierLevel = 0;
+
+const winJokes = [
+    "You won! The AI model finally aligned with your wallet.",
+    "Jackpot! Sam Altman is furiously taking notes.",
+    "Win! AGI achieved: Artificial Gambling Intelligence.",
+    "Tokens generated! Context window exceeded!",
+    "Success! Your prompt engineering is flawless."
+];
+
+const lossJokes = [
+    "No win. The AI hallucinated your payout.",
+    "Loss. We blame the training data.",
+    "Try again. The neural net is overfitting.",
+    "Missed. GPU out of memory.",
+    "No luck. The RLHF tuned it against you."
+];
+
 let isSpinning = false;
 let currentGrid = [
     ['ROBOT', 'BRAIN', 'MONEY'],
@@ -62,7 +82,7 @@ function playTone(freq, type, duration, vol) {
     oscillator.type = type;
     oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
     
-    gainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(vol * globalVolume, audioCtx.currentTime);
     gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
     
     oscillator.connect(gainNode);
@@ -86,8 +106,8 @@ function startAnticipationSound() {
     anticipationOsc.frequency.setValueAtTime(200, audioCtx.currentTime);
     anticipationOsc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 3);
     
-    anticipationGain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-    anticipationGain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 3);
+    anticipationGain.gain.setValueAtTime(0.05 * globalVolume, audioCtx.currentTime);
+    anticipationGain.gain.linearRampToValueAtTime(0.2 * globalVolume, audioCtx.currentTime + 3);
     
     anticipationOsc.connect(anticipationGain);
     anticipationGain.connect(audioCtx.destination);
@@ -135,14 +155,14 @@ initGrid();
 
 function getRandomSymbolWeighted(allowSpecials = true) {
     const pool = [
-        ...Array(2).fill('ROBOT'),
-        ...Array(4).fill('BRAIN'),
+        ...Array(2 + luckLevel).fill('ROBOT'),
+        ...Array(4 + luckLevel).fill('BRAIN'),
         ...Array(6).fill('MONEY'),
         ...Array(8).fill('BATTERY'),
         ...Array(5).fill('WARNING'),
     ];
     if (allowSpecials) {
-        pool.push(...Array(2).fill('WILD'));
+        pool.push(...Array(2 + luckLevel).fill('WILD'));
         pool.push(...Array(2).fill('SCATTER'));
     }
     return pool[Math.floor(Math.random() * pool.length)];
@@ -345,7 +365,7 @@ function spin() {
     if (audioCtx.state === 'suspended') audioCtx.resume();
 
     isSpinning = true;
-    spinBtn.disabled = true;
+    spinBtn.textContent = "SKIP";
     toggleBetButtons(true);
     paylinesOverlay.innerHTML = '';
     messageBoard.innerHTML = "<span style='color:#fff'>Spinning...</span>";
@@ -475,6 +495,7 @@ function stopParticleShower() {
 
 function finishSpin() {
     isSpinning = false;
+    spinBtn.textContent = "SPIN";
     toggleBetButtons(false);
     checkResetButton();
     stopBtns.forEach(btn => btn.disabled = true);
@@ -515,7 +536,7 @@ function finishSpin() {
         if (streak > 1) {
             winAmount += currentBet * (streak * 0.1);
         }
-        winAmount = Math.floor(winAmount);
+        winAmount = Math.floor(winAmount * (1 + (moneyMultiplierLevel * 0.5)));
         
         if (winAmount >= currentBet * 20) {
             triggerBigWin(winAmount);
@@ -527,7 +548,8 @@ function finishSpin() {
         }
         
         updateBalance(winAmount);
-        messageBoard.innerHTML = `WIN! +${winAmount} Tokens!`;
+        const joke = winJokes[Math.floor(Math.random() * winJokes.length)];
+        messageBoard.innerHTML = `WIN! +${winAmount} Tokens!<br><span style="font-size: 0.7em; color: var(--text-muted)">${joke}</span>`;
     } else {
         streak = 0;
         let isWarning = false;
@@ -537,11 +559,12 @@ function finishSpin() {
                 if (currentGrid[r][c] === 'WARNING') isWarning = true;
             }
         }
+        const joke = lossJokes[Math.floor(Math.random() * lossJokes.length)];
         if (isWarning) {
-             messageBoard.innerHTML = "Hallucination Detected!";
+             messageBoard.innerHTML = `Hallucination Detected!<br><span style="font-size: 0.7em; color: var(--text-muted)">${joke}</span>`;
              setTimeout(() => playTone(200, 'sawtooth', 0.6, 0.1), 0);
         } else {
-             messageBoard.innerHTML = "No Win. Try Again.";
+             messageBoard.innerHTML = `No Win. Try Again.<br><span style="font-size: 0.7em; color: var(--text-muted)">${joke}</span>`;
         }
     }
     
@@ -609,13 +632,93 @@ resetBtn.addEventListener('click', () => {
     }
 });
 
-spinBtn.addEventListener('click', spin);
-
-document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && !isSpinning && !spinBtn.disabled && (balance >= currentBet || freeSpins > 0)) {
-        e.preventDefault(); 
+spinBtn.addEventListener('click', () => {
+    if (isSpinning) {
+        activeReels.forEach((reel, index) => {
+            if (!reel.stopped) {
+                clearTimeout(reel.timeout);
+                reel.element.style.transition = 'none';
+                reel.element.style.transform = `translateY(${reel.targetY}px)`;
+                handleReelStop(index);
+            }
+        });
+    } else {
         spin();
     }
 });
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' && !spinBtn.disabled && (balance >= currentBet || freeSpins > 0)) {
+        e.preventDefault(); 
+        if (isSpinning) {
+            activeReels.forEach((reel, index) => {
+                if (!reel.stopped) {
+                    clearTimeout(reel.timeout);
+                    reel.element.style.transition = 'none';
+                    reel.element.style.transform = `translateY(${reel.targetY}px)`;
+                    handleReelStop(index);
+                }
+            });
+        } else {
+            spin();
+        }
+    }
+});
+
+document.getElementById('bet-reset').addEventListener('click', () => {
+    if (!isSpinning && balance >= 10) {
+        currentBet = 10;
+        currentBetDisplay.textContent = currentBet;
+        playTone(300, 'square', 0.1, 0.1);
+    }
+});
+
+const shopModal = document.getElementById('shop-modal');
+if (document.getElementById('shop-btn')) {
+    document.getElementById('shop-btn').addEventListener('click', () => {
+        shopModal.classList.remove('hidden');
+    });
+    document.getElementById('close-shop').addEventListener('click', () => {
+        shopModal.classList.add('hidden');
+    });
+
+    document.getElementById('buy-luck').addEventListener('click', () => {
+        if (balance >= 500) {
+            updateBalance(-500);
+            luckLevel++;
+            document.getElementById('buy-luck').textContent = `Buy for 500 (Lvl ${luckLevel})`;
+            playTone(600, 'sine', 0.1, 0.1);
+        }
+    });
+
+    document.getElementById('buy-money').addEventListener('click', () => {
+        if (balance >= 1000) {
+            updateBalance(-1000);
+            moneyMultiplierLevel++;
+            document.getElementById('buy-money').textContent = `Buy for 1000 (Lvl ${moneyMultiplierLevel})`;
+            playTone(600, 'sine', 0.1, 0.1);
+        }
+    });
+
+    document.getElementById('buy-cosmetic').addEventListener('click', () => {
+        if (balance >= 300 && !document.getElementById('cyber-bot')) {
+            updateBalance(-300);
+            const botElement = document.createElement('div');
+            botElement.id = 'cyber-bot';
+            botElement.innerHTML = '🤖';
+            botElement.style.cssText = 'position: fixed; bottom: 20px; right: 20px; font-size: 4rem; animation: float 3s infinite ease-in-out; z-index: 10;';
+            document.body.appendChild(botElement);
+            document.getElementById('buy-cosmetic').textContent = "Purchased!";
+            document.getElementById('buy-cosmetic').disabled = true;
+            playTone(800, 'sine', 0.2, 0.2);
+        }
+    });
+}
+
+if (document.getElementById('volume-slider')) {
+    document.getElementById('volume-slider').addEventListener('input', (e) => {
+        globalVolume = parseFloat(e.target.value);
+    });
+}
 
 checkResetButton();
