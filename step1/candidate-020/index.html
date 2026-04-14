@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Guzzler 3000</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Token Guzzler 3000</h1>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Compute Budget:</span>
+                <span id="token-count" class="value">1000</span> <span class="unit">Tokens</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Cost per Spin:</span>
+                <span class="value">10</span> <span class="unit">Tokens</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🧠</div></div>
+                <div class="reel" id="reel3"><div class="symbol">💸</div></div>
+            </div>
+            <div class="machine-overlay"></div>
+        </div>
+
+        <button id="spin-button" class="spin-btn">GENERATE (SPIN)</button>
+
+        <div class="message-board">
+            <p id="message">Insert context window to begin...</p>
+        </div>
+        
+        <div class="legend">
+            <h3>Paytable & Probabilities</h3>
+            <ul>
+                <li>💸💸💸 = +100 Tokens (Seed Round Raised!)</li>
+                <li>🧠🧠🧠 = +50 Tokens (AGI Achieved... almost)</li>
+                <li>🔋🔋🔋 = +30 Tokens (H100 Cluster Secured)</li>
+                <li>🤖🤖🤖 = +20 Tokens (Agents cooperating)</li>
+                <li>🗑️🗑️🗑️ = -50 Tokens (Massive Hallucination Penalty!)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

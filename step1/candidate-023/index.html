@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Casino: Spin the Context Window</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 LLM Casino</h1>
+            <p class="subtitle">Where your context window goes to die.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="tokens">
+                    Context Tokens: <span id="token-count">8192</span>
+                </div>
+                <div class="cost">
+                    Cost per Prompt: <span>128</span>
+                </div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="symbols">🧠</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbols">🤖</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbols">🖥️</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button">Generate Response (Spin)</button>
+            </div>
+
+            <div class="message-area" id="message-area">
+                Awaiting your prompt...
+            </div>
+            
+            <div class="paytable">
+                <h3>Paytable (Token ROI)</h3>
+                <ul>
+                    <li>🧠 🧠 🧠 AGI Achieved: +10,000</li>
+                    <li>🖥️ 🖥️ 🖥️ H100 Cluster: +5,000</li>
+                    <li>🤖 🤖 🤖 Perfect Code: +1,000</li>
+                    <li>📈 📈 📈 Funding Secured: +500</li>
+                    <li>Any 2 matching: Partial Refund (+64)</li>
+                    <li>🗑️ 🗑️ 🗑️ Hallucination: Lose 500 extra!</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

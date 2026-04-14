@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 LLM Token Gacha 🎰</h1>
+        <p class="subtitle">Spend your compute wisely...</p>
+        
+        <div class="stats">
+            <div class="balance-container">
+                Tokens: <span id="balance">10000</span>
+            </div>
+            <div class="message" id="message">Insert prompt to spin!</div>
+        </div>
+
+        <div class="machine">
+            <div class="reels">
+                <div class="reel" id="reel1"><div class="symbol">🧠</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel3"><div class="symbol">⚡</div></div>
+            </div>
+            <div class="controls">
+                <button id="spin-btn">Generate (Cost: 100 Tokens)</button>
+            </div>
+        </div>
+        
+        <div class="paytable">
+            <h3>Paytable (ROI)</h3>
+            <ul>
+                <li>🍓🍓🍓 - AGI Achieved (Jackpot: +5000)</li>
+                <li>🧠🧠🧠 - Perfect Alignment (+2000)</li>
+                <li>⚡⚡⚡ - Unlimited Compute (+1000)</li>
+                <li>🤖🤖🤖 - Useful Output (+500)</li>
+                <li>💸💸💸 - VC Funding Secured (+200)</li>
+                <li>🗑️🗑️🗑️ - Catastrophic Forgetting (-500)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

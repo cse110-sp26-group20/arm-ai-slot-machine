@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Token Casino 🤖</h1>
+        <p class="subtitle">Where your compute budget goes to die.</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Tokens Remaining:</span>
+                <span id="balance">1000</span> 🪙
+            </div>
+            <div class="stat-box">
+                <span class="label">Cost per Prompt:</span>
+                <span id="cost">10</span> 🪙
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">❓</div>
+                <div class="reel" id="reel2">❓</div>
+                <div class="reel" id="reel3">❓</div>
+            </div>
+            <div class="message-board" id="message">Insert tokens to generate a response...</div>
+            <button id="spin-btn" class="spin-btn">Generate (Spin)</button>
+        </div>
+
+        <div class="legend">
+            <h3>Paytable</h3>
+            <ul>
+                <li>🤖🤖🤖 : 500 Tokens (AGI Achieved!)</li>
+                <li>🧠🧠🧠 : 200 Tokens (High Quality Output)</li>
+                <li>🎮🎮🎮 : 100 Tokens (GPU Acquired)</li>
+                <li>Any 2 matching : 20 Tokens (Partial Match)</li>
+                <li>💸/📉 : 0 Tokens (Rate Limited/Hallucination)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

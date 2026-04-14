@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Guzzler 3000</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>🎰 AI Token Guzzler 3000 🎰</h1>
+            <p>Spend your context window! Feed the compute!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="stats">
+                <div class="stat-box">
+                    <span>Balance:</span>
+                    <span id="balance">1000</span> <span class="unit">Tokens</span>
+                </div>
+                <div class="stat-box">
+                    <span>Cost per Spin:</span>
+                    <span>100</span> <span class="unit">Tokens</span>
+                </div>
+            </div>
+
+            <div class="reels">
+                <div class="reel-container"><div class="reel" id="reel1">🤖</div></div>
+                <div class="reel-container"><div class="reel" id="reel2">🤖</div></div>
+                <div class="reel-container"><div class="reel" id="reel3">🤖</div></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button">GENERATE (SPIN)</button>
+            </div>
+
+            <div class="message-board" id="message">
+                Ready to burn some GPUs?
+            </div>
+            
+            <div class="paytable">
+                <h3>Paytable</h3>
+                <ul>
+                    <li>🧠 🧠 🧠 : 1000 Tokens (AGI Achieved!)</li>
+                    <li>🔥 🔥 🔥 : 500 Tokens (Overclocked!)</li>
+                    <li>🤖 🤖 🤖 : 300 Tokens (Standard Output)</li>
+                    <li>🗑️ 🗑️ 🗑️ : -50 Tokens (Hallucination Penalty)</li>
+                    <li>Any 2 matching : 50 Tokens (Partial Match)</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
