@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Cyber Slots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="casino-bg" id="casino-bg"></div>
+    
+    <div id="big-win-overlay">
+        <canvas id="particles-canvas"></canvas>
+        <div class="big-win-content">
+            <h1 class="glow-text">BIG WIN</h1>
+            <div id="rollup-counter">0</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="neon-text">NEON SLOTS</h1>
+        </header>
+
+        <div class="stats-panel">
+            <div class="tokens">
+                CREDITS: <span id="token-count" class="token-value">1000</span>
+            </div>
+            <div id="fs-display" class="hidden">
+                FREE SPINS: <span id="fs-count">0</span> (3x WINS)
+            </div>
+            <div class="message" id="message">Insert credits to spin!</div>
+        </div>
+
+        <div class="machine-border">
+            <div class="slot-machine" id="slot-machine">
+                <svg class="paylines-overlay" id="paylines-overlay"></svg>
+                
+                <div class="reel-container" id="col-0">
+                    <div class="cell" id="c0-r0"></div>
+                    <div class="cell" id="c0-r1"></div>
+                    <div class="cell" id="c0-r2"></div>
+                </div>
+                <div class="reel-container" id="col-1">
+                    <div class="cell" id="c1-r0"></div>
+                    <div class="cell" id="c1-r1"></div>
+                    <div class="cell" id="c1-r2"></div>
+                </div>
+                <div class="reel-container" id="col-2">
+                    <div class="cell" id="c2-r0"></div>
+                    <div class="cell" id="c2-r1"></div>
+                    <div class="cell" id="c2-r2"></div>
+                </div>
+            </div>
+            <div class="stop-buttons">
+                <button class="btn-stop" id="stop-0" disabled>STOP</button>
+                <button class="btn-stop" id="stop-1" disabled>STOP</button>
+                <button class="btn-stop" id="stop-2" disabled>STOP</button>
+            </div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="bet-section">
+                <button id="bet-down" class="btn-small">➖</button>
+                <div class="bet-display">BET: <span id="bet-amount">10</span></div>
+                <button id="bet-up" class="btn-small">➕</button>
+                <button id="bet-max" class="btn-small">MAX</button>
+            </div>
+            <div class="main-actions">
+                <button id="spin-btn" class="btn-spin">SPIN</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

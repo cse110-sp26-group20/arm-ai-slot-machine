@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Casino</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container" class="container">
+        <header>
+            <h1 class="casino-title">Neon Slots</h1>
+            <p class="subtitle">Match 3 across 5 paylines</p>
+        </header>
+
+        <div class="top-controls">
+            <button id="paytable-btn" class="control-btn">ℹ️ Payouts</button>
+            <button id="reset-btn" class="control-btn hidden">🔄 Reset Tokens</button>
+        </div>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="stat">
+                    <span class="label">Tokens:</span>
+                    <span class="value" id="token-balance">1000</span>
+                </div>
+                <div class="stat" id="free-spins-display" style="display:none">
+                    <span class="label" style="color:var(--neon-purple)">Free Spins:</span>
+                    <span class="value" id="free-spins-count" style="color:var(--neon-purple)">0</span>
+                </div>
+                <div class="stat" id="streak-display">
+                    <span class="label">Streak:</span>
+                    <span class="value streak" id="streak-counter">0</span>
+                </div>
+            </div>
+
+            <div class="reels-wrapper">
+                <div class="reels-window">
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-0"></div>
+                    </div>
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-1"></div>
+                    </div>
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-2"></div>
+                    </div>
+                    <svg class="paylines-overlay" id="paylines-overlay"></svg>
+                </div>
+                <div class="stop-controls">
+                    <button class="stop-btn" id="stop-0" disabled>STOP 1</button>
+                    <button class="stop-btn" id="stop-1" disabled>STOP 2</button>
+                    <button class="stop-btn" id="stop-2" disabled>STOP 3</button>
+                </div>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Ready to spin.
+            </div>
+
+            <div class="bet-controls">
+                <button id="bet-minus" class="bet-btn">-</button>
+                <div class="current-bet-display">
+                    <span class="label">Bet:</span>
+                    <span id="current-bet" class="value cost">10</span>
+                </div>
+                <button id="bet-plus" class="bet-btn">+</button>
+                <button id="bet-max" class="bet-btn max">MAX</button>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="spin-btn">SPIN</button>
+            </div>
+        </main>
+
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h3>Payouts (Multiplier)</h3>
+                <ul id="paytable-list">
+                    <!-- populated via JS -->
+                </ul>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--neon-magenta);">Wild substitutes for any symbol except Scatter.</p>
+                <p style="margin-top: 5px; font-size: 0.8rem; color: var(--neon-purple);">3 Scatters = 10 Free Spins (3x Multiplier)!</p>
+            </div>
+        </div>
+
+        <div id="big-win-overlay" class="hidden">
+            <canvas id="particles-canvas"></canvas>
+            <div class="big-win-content">
+                <h2 class="big-win-title">BIG WIN!</h2>
+                <div class="rollup-counter" id="rollup-counter">0</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
