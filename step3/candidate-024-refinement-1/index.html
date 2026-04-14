@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Casino Royale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="casino-bg"></div>
+    <div class="container" id="game-container">
+        <header>
+            <h1>🎰 AI Token Casino 🎰</h1>
+            <p>Spend your context window wisely.</p>
+        </header>
+        
+        <div class="top-controls">
+            <button id="payout-btn">Payout Info</button>
+            <button id="reset-btn" class="hidden">Reset Tokens (VC Bailout)</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Tokens Balance:</span>
+                <span id="token-count" class="value">10000</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Win Streak:</span>
+                <span id="streak-count" class="value streak-val">0</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="lights-border"></div>
+            <div class="reels-container">
+                <div class="reel" id="reel1"><div class="symbols"></div></div>
+                <div class="reel" id="reel2"><div class="symbols"></div></div>
+                <div class="reel" id="reel3"><div class="symbols"></div></div>
+            </div>
+            <div class="win-line"></div>
+        </div>
+
+        <div class="controls">
+            <div class="bet-control">
+                <label for="bet-amount">Bet Size:</label>
+                <input type="number" id="bet-amount" value="500" min="10" step="10">
+            </div>
+            <button id="spin-btn">GENERATE (Spin)</button>
+        </div>
+        
+        <div id="message" class="message">Ready to prompt...</div>
+    </div>
+
+    <!-- Payout Modal -->
+    <div id="payout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h2>Payout Multipliers</h2>
+            <div id="payout-list"></div>
+            <p class="bonus-info">🔥 Streak Bonus: +50% for every consecutive win! 🔥</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
