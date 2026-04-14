@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | AI Token Gambler. Starts with 1000 tokens and costs 10 tokens per roll. Accepts partial matches. |
-| Timestamp               | 2026-04-12 11:15:00 (PT) |
+| Run Id                  | candidate-029 |
+| Timestamp               | 2026-04-12T11:15:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 19,802 |
 | Output Tokens           | 3,088 |

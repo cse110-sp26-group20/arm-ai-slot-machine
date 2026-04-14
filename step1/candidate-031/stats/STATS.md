@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | AI Token Slots. Start with 100 tokens, costs 10 tokens to spin. |
-| Timestamp               | 2026-04-12 11:25:00 (PT) |
+| Run Id                  | candidate-031 |
+| Timestamp               | 2026-04-12T11:25:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 14,487 |
 | Output Tokens           | 3,127 |

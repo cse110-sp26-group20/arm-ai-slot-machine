@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | AI Token Gambler. 1000 tokens to start with, 10 token cost. |
-| Timestamp               | 2026-04-12 12:54:00 (PT) |
+| Run Id                  | candidate-032 |
+| Timestamp               | 2026-04-12T12:54:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 14,608 |
 | Output Tokens           | 3,220 |

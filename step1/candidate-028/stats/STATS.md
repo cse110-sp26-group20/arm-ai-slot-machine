@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | AI Token Gambler. Started with 1000 tokens and is 10 tokens per roll. |
-| Timestamp               | 2026-04-12 10:59:00 (PT) |
+| Run Id                  | candidate-028 |
+| Timestamp               | 2026-04-12T10:59:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 13,531 |
 | Output Tokens           | 3,051 |

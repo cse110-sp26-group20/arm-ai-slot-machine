@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | AI Token Casino. Started with 10,000 tokens with a 500 token cost to spin. Failed to reward tokens on highest roll  |
-| Timestamp               | 2026-04-12 10:59:00 (PT) |
+| Run Id                  | candidate-027 |
+| Timestamp               | 2026-04-11T16:09:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 20,758 |
 | Output Tokens           | 3,605 |

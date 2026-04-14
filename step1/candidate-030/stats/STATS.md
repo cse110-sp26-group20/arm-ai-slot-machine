@@ -2,8 +2,8 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   | The Great AI Token Burner. Starts with 10000 tokens and costs 100 tokens to spin.  |
-| Timestamp               | 2026-04-12 11:21:00 (PT) |
+| Run Id                  | candidate-030 |
+| Timestamp               | 2026-04-12T11:21:00-07:00 |
 | Model + String Version  | gemini-3.1-pro-preview |
 | Input Tokens            | 13,663 |
 | Output Tokens           | 2,793 |
