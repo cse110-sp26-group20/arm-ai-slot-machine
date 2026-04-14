@@ -13,5 +13,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|391|
 |Runs in browser?|NO|
-|App Quality Notes||
-|Code Quality Notes||
+|App Quality Notes|The UI is very nice. I like the color scheme used, and the images are high quality.|
+|Code Quality Notes|A bit verbose, not horrible misuse of code, but could be better|

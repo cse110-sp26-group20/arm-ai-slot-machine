@@ -1,4 +1,4 @@
-# 033-Run's Stats
+# 034-Run's Stats
 
 |Field|Notes|
 |:--|:--|
@@ -13,5 +13,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|377|
 |Runs in browser?|NO|
-|App Quality Notes||
-|Code Quality Notes||
+|App Quality Notes|I dont think the color scheme is very nice, it is interactive, however not a very attractive app|
+|Code Quality Notes|Definitely verbose, could have done just as good of an app with less lines of code|

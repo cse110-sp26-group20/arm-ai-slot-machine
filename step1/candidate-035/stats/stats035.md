@@ -1,0 +1,17 @@
+# 035-Run's Stats
+
+|Field|Notes|
+|:--|:--|
+|Notes|51974ad0-ff82-4c83-944e-4505b60cdcba|
+|Timestamp|1776024000|
+|Model + version string|gemini-3.1-pro-preview|
+|Input tokens|14,198|
+|Output tokens|3,348|
+|Total tokens|24,262|
+|Wall-clock time (s)|53.2s|
+|Tool-reported time (s)|52.3s|
+|Files produced|"index.html", "script.js", "style.css"|
+|Lines of code|366|
+|Runs in browser?|NO|
+|App Quality Notes|Not super functional, appears like you can change bet on coins, when there is no option, and not an attractive ui|
+|Code Quality Notes|Too many lines of code, also not commented on enough|
