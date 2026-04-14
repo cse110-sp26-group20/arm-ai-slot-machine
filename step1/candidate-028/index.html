@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend your context window to win big!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="token-display">
+                Tokens Remaining: <span id="token-count">1000</span>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1">❓</div>
+                <div class="reel" id="reel2">❓</div>
+                <div class="reel" id="reel3">❓</div>
+            </div>
+
+            <button id="spin-button" class="spin-btn">Spin (Cost: 10 Tokens)</button>
+
+            <div id="message-area" class="message">
+                Ready to burn some compute?
+            </div>
+            <div class="cost-info">
+                * Warning: High hallucination rate.
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

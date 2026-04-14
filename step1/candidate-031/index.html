@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Slots</h1>
+            <div class="balance-container">
+                <span class="label">Context Window Limit:</span>
+                <span id="token-balance" class="balance">100</span> <span class="label">Tokens</span>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">🤖</div>
+                <div class="reel" id="reel-2">🤖</div>
+                <div class="reel" id="reel-3">🤖</div>
+            </div>
+            <div class="controls">
+                <button id="spin-btn">Generate (Cost: 10 Tokens)</button>
+            </div>
+            <div class="message-board">
+                <p id="message">Insert prompt to begin.</p>
+            </div>
+        </main>
+        
+        <div class="paytable">
+            <h3>Reward Function</h3>
+            <ul>
+                <li>🤖🤖🤖 AGI Achieved: +100 Tokens</li>
+                <li>🧠🧠🧠 Parameter Surge: +50 Tokens</li>
+                <li>💸💸💸 VC Funding Secured: +40 Tokens</li>
+                <li>🚀🚀🚀 Hype Cycle Peak: +30 Tokens</li>
+                <li>🗑️🗑️🗑️ Output Filtered: 0 Tokens</li>
+                <li>📉📉📉 Model Hallucination: Penalty -20 Tokens</li>
+                <li>Any 2 Matching: +5 Tokens</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

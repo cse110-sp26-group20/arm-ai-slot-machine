@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gambler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend your context window wisely!</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span>Prompt Tokens:</span>
+                <span id="balance">1000</span>
+            </div>
+            <div class="stat-box">
+                <span>Last Win:</span>
+                <span id="last-win">0</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="slots">
+                <div class="slot" id="slot1">🤖</div>
+                <div class="slot" id="slot2">🧠</div>
+                <div class="slot" id="slot3">💸</div>
+            </div>
+            <div class="controls">
+                <button id="spin-btn">Generate (Cost: 10 Tokens)</button>
+            </div>
+            <div id="message" class="message">Ready to hallucinate?</div>
+        </div>
+
+        <div class="paytable">
+            <h3>Payouts</h3>
+            <ul>
+                <li>🧠 🧠 🧠 - 500 Tokens (AGI Achieved!)</li>
+                <li>🤖 🤖 🤖 - 200 Tokens (Perfect Code)</li>
+                <li>⚡️ ⚡️ ⚡️ - 100 Tokens (Fast Response)</li>
+                <li>💸 💸 💸 - 50 Tokens (VC Funding)</li>
+                <li>📉 📉 📉 - 10 Tokens (Model Degradation)</li>
+                <li>Any 2 matching - 5 Tokens (Partial Match)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

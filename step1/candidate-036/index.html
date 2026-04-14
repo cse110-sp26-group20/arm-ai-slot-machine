@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Burner 9000</h1>
+            <p>Spend your context window! Win hallucinations!</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="status-board">
+                <div class="balance">Tokens: <span id="token-balance">1000</span></div>
+                <div class="cost">Cost per Spin: 10 Tokens</div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1"><div class="symbol">🧠</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel3"><div class="symbol">💸</div></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">GENERATE (SPIN)</button>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Ready to waste compute?
+            </div>
+        </main>
+        
+        <div class="paytable">
+            <h3>Paytable (Token Payouts)</h3>
+            <ul>
+                <li>🤖🤖🤖 - Jackpot! (AGI Achieved) : 500</li>
+                <li>🧠🧠🧠 - Galaxy Brain : 200</li>
+                <li>💸💸💸 - VC Funding : 100</li>
+                <li>💾💾💾 - More Training Data : 50</li>
+                <li>🗑️🗑️🗑️ - Pure Hallucination : 10</li>
+                <li>Any mixed - Context Limit Reached : 0</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

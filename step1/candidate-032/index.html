@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gambler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend your context window wisely!</p>
+        </header>
+
+        <div class="stats">
+            <div class="balance">Tokens: <span id="token-balance">1000</span></div>
+            <div class="cost">Cost per Generation: 10 Tokens</div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">❓</div>
+                <div class="reel" id="reel2">❓</div>
+                <div class="reel" id="reel3">❓</div>
+            </div>
+            <div class="controls">
+                <button id="spin-btn">Generate (Spin)</button>
+            </div>
+        </div>
+
+        <div class="message-board">
+            <p id="message">Awaiting your prompt...</p>
+        </div>
+        
+        <div class="legend">
+            <h3>Paytable (Match 3)</h3>
+            <ul>
+                <li>🧠 🧠 🧠 : AGI Achieved! (+500 Tokens)</li>
+                <li>🤖 🤖 🤖 : Perfect Prompt (+100 Tokens)</li>
+                <li>🖥️ 🖥️ 🖥️ : Compute Secured (+50 Tokens)</li>
+                <li>🔋 🔋 🔋 : Energy Efficient (+20 Tokens)</li>
+                <li>🗑️ 🗑️ 🗑️ : Garbage In, Garbage Out (+0 Tokens)</li>
+                <li>📉 📉 📉 : Massive Hallucination! (-50 Tokens)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

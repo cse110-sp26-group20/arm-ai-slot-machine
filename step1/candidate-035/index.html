@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Hype Slots</h1>
+            <p>Spend your VC tokens on the illusion of progress!</p>
+        </header>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+            
+            <div class="controls">
+                <div class="stats">
+                    <p>Tokens: <span id="tokens">1000</span></p>
+                    <p>Bet: <span id="bet">10</span></p>
+                </div>
+                <button id="spin-btn">SPIN (Compute)</button>
+            </div>
+        </div>
+
+        <div class="message-board">
+            <p id="message">Welcome to the AI Gold Rush! Insert compute to begin.</p>
+        </div>
+        
+        <div class="legend">
+            <h3>Payouts</h3>
+            <p>🧠🧠🧠 = AGI (Jackpot) - 100x</p>
+            <p>🤖🤖🤖 = Useful Model - 50x</p>
+            <p>🔋🔋🔋 = More Compute - 20x</p>
+            <p>☁️☁️☁️ = Cloud Credits - 10x</p>
+            <p>💾💾💾 = More Training Data - 5x</p>
+            <p>📉 Any mixed = Hallucination (Lose Bet)</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

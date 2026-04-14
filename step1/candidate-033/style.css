@@ -1,0 +1,170 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #e94560;
+    --machine-bg: #16213e;
+    --slot-bg: #0f3460;
+    --accent: #e94560;
+    --win-color: #4caf50;
+    --lose-color: #f44336;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #888;
+    margin-top: 0;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background-color: var(--machine-bg);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+}
+
+.stat-box {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#balance {
+    color: var(--win-color);
+}
+
+.machine {
+    background-color: var(--machine-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.slots {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: inset 5px #333;
+}
+
+.slot {
+    background-color: var(--slot-bg);
+    width: 100px;
+    height: 120px;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    border: 2px solid #444;
+    transition: transform 0.1s;
+}
+
+.controls button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: inherit;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-transform: uppercase;
+    box-shadow: 0 5px 0 #a03040;
+}
+
+.controls button:hover {
+    background-color: #ff5775;
+}
+
+.controls button:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 #a03040;
+}
+
+.controls button:disabled {
+    background-color: #555;
+    box-shadow: 0 5px 0 #333;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    min-height: 1.5em;
+    font-weight: bold;
+}
+
+.win-text { color: var(--win-color); }
+.lose-text { color: var(--lose-color); }
+
+.paytable {
+    background-color: var(--machine-bg);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.paytable h3 {
+    margin-top: 0;
+    color: var(--accent);
+    text-align: center;
+}
+
+.paytable ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paytable li {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #444;
+}
+
+.paytable li:last-child {
+    border-bottom: none;
+}
+
+/* Animation classes */
+.spin-anim {
+    animation: spinBlur 0.1s infinite alternate;
+}
+
+@keyframes spinBlur {
+    0% { filter: blur(0px); transform: translateY(0); }
+    100% { filter: blur(3px); transform: translateY(-5px); }
+}
