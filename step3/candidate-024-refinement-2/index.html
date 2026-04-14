@@ -24,20 +24,31 @@
                 <span class="label">Tokens Balance:</span>
                 <span id="token-count" class="value">10000</span>
             </div>
-            <div class="stat-box">
-                <span class="label">Win Streak:</span>
-                <span id="streak-count" class="value streak-val">0</span>
+            <div class="stat-box" id="free-spins-box" style="display: none;">
+                <span class="label">Free Spins:</span>
+                <span id="free-spins-count" class="value streak-val">0</span>
             </div>
         </div>
 
         <div class="slot-machine">
             <div class="lights-border"></div>
             <div class="reels-container">
+                <div class="paylines-overlay">
+                    <div id="payline-0" class="payline"></div>
+                    <div id="payline-1" class="payline"></div>
+                    <div id="payline-2" class="payline"></div>
+                    <div id="payline-3" class="payline"></div>
+                    <div id="payline-4" class="payline"></div>
+                </div>
+                <div class="reel" id="reel0"><div class="symbols"></div></div>
                 <div class="reel" id="reel1"><div class="symbols"></div></div>
                 <div class="reel" id="reel2"><div class="symbols"></div></div>
-                <div class="reel" id="reel3"><div class="symbols"></div></div>
             </div>
-            <div class="win-line"></div>
+            <div class="stop-buttons">
+                <button id="stop-0" class="stop-btn">STOP</button>
+                <button id="stop-1" class="stop-btn">STOP</button>
+                <button id="stop-2" class="stop-btn">STOP</button>
+            </div>
         </div>
 
         <div class="controls">
@@ -57,7 +68,15 @@
             <span class="close-btn" id="close-modal">&times;</span>
             <h2>Payout Multipliers</h2>
             <div id="payout-list"></div>
-            <p class="bonus-info">🔥 Streak Bonus: +50% for every consecutive win! 🔥</p>
+        </div>
+    </div>
+
+    <!-- Big Win Overlay -->
+    <div id="big-win-overlay" class="hidden">
+        <canvas id="particles-canvas"></canvas>
+        <div class="big-win-content">
+            <h1 class="big-win-title">BIG WIN!</h1>
+            <div id="rollup-counter">+0</div>
         </div>
     </div>
 

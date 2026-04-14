@@ -4,11 +4,12 @@
     --primary: #00ffcc;
     --secondary: #ff00ff;
     --accent: #ffae00;
-    --reel-bg: #1e293b;
-    --terminal-bg: #050505;
-    --terminal-text: #00ff00;
+    --wild: #ff0055;
+    --scatter: #aa00ff;
+    --reel-bg: #111827;
     --neon-glow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5);
-    --neon-pink: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+    --symbol-size: 80px;
+    --reel-height: calc(var(--symbol-size) * 3);
 }
 
 body {
@@ -21,367 +22,149 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .casino-wrapper {
-    background-color: rgba(15, 23, 42, 0.8);
-    padding: 2rem;
+    background-color: rgba(15, 23, 42, 0.9);
+    padding: 1.5rem;
     border-radius: 1.5rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 255, 204, 0.1);
     border: 2px solid #1e293b;
-    max-width: 650px;
-    width: 100%;
+    max-width: 600px;
+    width: 95%;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.casino-wrapper.free-spins-mode {
+    border-color: var(--scatter);
+    box-shadow: 0 0 40px rgba(170, 0, 255, 0.6), inset 0 0 30px rgba(170, 0, 255, 0.2);
+    background-color: rgba(30, 10, 40, 0.9);
 }
 
 header h1 {
     color: #fff;
     text-transform: uppercase;
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
     text-shadow: var(--neon-glow);
-    letter-spacing: 2px;
 }
 
-header p {
-    color: #94a3b8;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    font-style: italic;
-}
+header p { color: #94a3b8; font-style: italic; margin-bottom: 1rem; }
 
-.slot-machine {
-    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    border: 2px solid #334155;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
-}
-
-/* Win Animations */
-.slot-machine.flash-win {
-    animation: flashSmall 1s ease-in-out;
-    border-color: var(--primary);
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
-}
-
-.slot-machine.super-flash-win {
-    animation: flashBig 2s infinite;
-    border-color: var(--secondary);
-}
-
-@keyframes flashSmall {
-    0%, 100% { box-shadow: 0 0 0 transparent; }
-    50% { box-shadow: 0 0 40px var(--primary); }
-}
-
-@keyframes flashBig {
-    0%, 100% { box-shadow: 0 0 20px var(--secondary); border-color: var(--secondary); }
-    50% { box-shadow: 0 0 60px var(--accent), inset 0 0 20px var(--accent); border-color: var(--accent); }
-}
-
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-}
-
-.balance-display, .streak-display {
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #000;
-    padding: 0.8rem 1.2rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--primary);
+.top-bar { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+.balance-display, .bonus-display {
+    font-size: 1.2rem; font-weight: bold; background: #000;
+    padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid var(--primary);
     box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: flex; align-items: center; gap: 0.5rem;
 }
-
-#balance {
-    color: var(--primary);
-    text-shadow: 0 0 5px var(--primary);
-}
-
-.streak-display {
-    border-color: var(--accent);
-    box-shadow: inset 0 0 10px rgba(255, 174, 0, 0.2);
-}
-
-#streak {
-    color: var(--accent);
-}
-
-#multiplier {
-    background: var(--secondary);
-    color: white;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.9rem;
-    box-shadow: 0 0 10px var(--secondary);
-}
+#balance { color: var(--primary); text-shadow: 0 0 5px var(--primary); }
+.bonus-display { border-color: var(--scatter); box-shadow: inset 0 0 10px rgba(170, 0, 255, 0.3); }
+#free-spins-left { color: var(--scatter); text-shadow: 0 0 5px var(--scatter); }
+#multiplier { background: var(--scatter); color: #fff; padding: 0.2rem 0.5rem; border-radius: 0.25rem; font-size: 0.9rem; }
 
 .reels-container {
-    position: relative;
-    background: #000;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    border: 3px solid #475569;
-    margin-bottom: 2rem;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+    position: relative; background: #000; padding: 1rem; border-radius: 1rem;
+    border: 3px solid #475569; margin-bottom: 1rem; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+.payline-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;
+}
+.payline {
+    stroke: var(--secondary); stroke-width: 6; stroke-linecap: round;
+    filter: drop-shadow(0 0 5px var(--secondary));
+    stroke-dasharray: 1000; stroke-dashoffset: 1000;
+    animation: drawLine 0.5s forwards, pulseLine 1s infinite alternate 0.5s;
 }
 
-.reels {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+@keyframes pulseLine { from { filter: drop-shadow(0 0 5px var(--secondary)); opacity: 0.8; } to { filter: drop-shadow(0 0 15px var(--secondary)); opacity: 1; } }
+
+.reels { display: flex; justify-content: center; gap: 1rem; }
+.reel-column { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
 
 .reel {
-    font-size: 4rem;
-    width: 110px;
-    height: 130px;
-    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
-    border: 4px solid #334155;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.3);
-    overflow: hidden;
-    position: relative;
+    width: var(--symbol-size); height: var(--reel-height);
+    background: var(--reel-bg); border: 2px solid #334155; border-radius: 5px;
+    overflow: hidden; position: relative; box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
 
-.reel-inner {
-    transition: transform 0.1s;
+.reel-strip {
+    display: flex; flex-direction: column; position: absolute; top: 0; left: 0; width: 100%;
+}
+.symbol-container {
+    width: var(--symbol-size); height: var(--symbol-size);
+    display: flex; justify-content: center; align-items: center;
+}
+.symbol-container svg {
+    width: 60%; height: 60%; filter: drop-shadow(0 0 5px currentColor);
 }
 
-.reel.spinning .reel-inner {
-    animation: slotSpin 0.1s infinite linear;
+.stop-btn {
+    background: #334155; color: white; border: 1px solid #475569; padding: 0.3rem 0.8rem;
+    border-radius: 0.3rem; font-weight: bold; cursor: pointer; transition: 0.2s;
+    font-size: 0.8rem; width: 100%;
 }
+.stop-btn:hover:not(:disabled) { background: #ef4444; border-color: #f87171; box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+.stop-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-@keyframes slotSpin {
-    0% { transform: translateY(-50px) scaleY(1.5); filter: blur(2px); }
-    100% { transform: translateY(50px) scaleY(1.5); filter: blur(2px); }
-}
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.bet-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(0,0,0,0.3);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-}
-
-.bet-btn {
-    background: #334155;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bet-btn:hover:not(:disabled) {
-    background: var(--primary);
-    color: #000;
-    box-shadow: 0 0 10px var(--primary);
-}
-
-.bet-display {
-    font-size: 1.2rem;
-    font-weight: bold;
-    min-width: 100px;
-}
-
-#current-bet {
-    color: var(--secondary);
-}
+.controls { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
+.bet-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 0.5rem; }
+.bet-btn { background: #334155; color: white; border: none; width: 40px; height: 40px; font-size: 1.5rem; border-radius: 50%; cursor: pointer; transition: 0.2s; display: flex; justify-content: center; align-items: center; }
+.bet-btn:hover:not(:disabled) { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); }
+.bet-display { font-size: 1.2rem; font-weight: bold; min-width: 100px; }
 
 .spin-btn {
     background: linear-gradient(135deg, var(--secondary) 0%, #9d00ff 100%);
-    color: white;
-    border: 2px solid #ff00ff;
-    padding: 1rem 2rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
-    transition: all 0.1s;
+    color: white; border: 2px solid #ff00ff; padding: 1rem 2rem; font-size: 1.3rem;
+    font-weight: bold; border-radius: 0.5rem; cursor: pointer; text-transform: uppercase;
+    letter-spacing: 1px; box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); transition: 0.1s;
 }
-
-.spin-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
-}
-
-.spin-btn:active:not(:disabled) {
-    transform: translateY(2px);
-}
-
-.spin-btn:disabled {
-    background: #334155;
-    border-color: #475569;
-    color: #94a3b8;
-    cursor: not-allowed;
-    box-shadow: none;
-    background-image: none;
-}
-
-.secondary-controls {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.action-btn {
-    background: transparent;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: bold;
-}
-
-.action-btn:hover {
-    background: var(--primary);
-    color: #000;
-}
-
-#reset-btn {
-    background: var(--accent);
-    color: #000;
-    border: none;
-    animation: pulse 1s infinite;
-    padding: 1rem;
-    font-size: 1.2rem;
-}
+.spin-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 0 25px rgba(255, 0, 255, 0.7); }
+.spin-btn:active:not(:disabled) { transform: translateY(2px); }
+.spin-btn:disabled { background: #334155; border-color: #475569; color: #94a3b8; cursor: not-allowed; box-shadow: none; }
 
 .message-area {
-    min-height: 3rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-    background: rgba(0,0,0,0.5);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 1px dashed #475569;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-height: 3rem; font-size: 1.1rem; font-weight: bold; color: var(--text-color);
+    background: rgba(0,0,0,0.5); padding: 0.5rem; border-radius: 0.5rem; border: 1px dashed #475569;
+    display: flex; flex-direction: column; justify-content: center;
 }
 
-.logs {
-    margin-top: 2rem;
+/* BIG WIN OVERLAY */
+#big-win-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85); z-index: 9999;
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
 }
-
-.logs h2 {
-    font-size: 1rem;
-    text-align: left;
-    color: #64748b;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
+#big-win-overlay.hidden { display: none !important; }
+#particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.big-win-content { position: relative; z-index: 10000; text-align: center; }
+.neon-text-giant {
+    font-size: 5rem; color: var(--accent); margin: 0; text-transform: uppercase;
+    text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 80px #fff;
+    animation: zoomPulse 1s infinite alternate;
 }
-
-.terminal {
-    background-color: var(--terminal-bg);
-    color: var(--terminal-text);
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    height: 120px;
-    overflow-y: auto;
-    font-size: 0.85rem;
-    border: 1px solid #1e293b;
-    box-shadow: inset 0 0 10px rgba(0,255,0,0.1);
+#rollup-counter {
+    font-size: 4rem; font-weight: bold; color: var(--primary);
+    text-shadow: 0 0 20px var(--primary); margin-top: 1rem;
 }
+@keyframes zoomPulse { from { transform: scale(1); } to { transform: scale(1.1); } }
 
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+/* Symbol colors applied via class */
+.sym-wild { color: var(--wild); }
+.sym-scatter { color: var(--scatter); }
+.sym-1 { color: #00ffcc; }
+.sym-2 { color: #3b82f6; }
+.sym-3 { color: #22c55e; }
+.sym-4 { color: #eab308; }
+.sym-5 { color: #f97316; }
 
-.modal.hidden {
-    display: none !important;
-}
-
-.modal-content {
-    background: #0f172a;
-    padding: 2rem;
-    border-radius: 1rem;
-    border: 2px solid var(--primary);
-    min-width: 300px;
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
-}
-
-.modal-content h2 {
-    color: var(--primary);
-    margin-top: 0;
-    text-align: center;
-}
-
-.close-btn {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #94a3b8;
-    line-height: 1;
-}
-
-.close-btn:hover {
-    color: white;
-}
-
-.payout-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #1e293b;
-    font-size: 1.1rem;
-}
-
-.payout-item:last-child {
-    border-bottom: none;
-}
-
-.hidden {
-    display: none !important;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
+@media (max-width: 500px) {
+    :root { --symbol-size: 60px; }
+    .casino-wrapper { padding: 1rem; }
+    .neon-text-giant { font-size: 3.5rem; }
+    #rollup-counter { font-size: 2.5rem; }
 }

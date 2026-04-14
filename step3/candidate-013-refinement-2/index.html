@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Token Casino</title>
+    <title>AI Token Casino - Reforged</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="casino-wrapper">
+    <!-- BIG WIN OVERLAY -->
+    <div id="big-win-overlay" class="hidden">
+        <canvas id="particle-canvas"></canvas>
+        <div class="big-win-content">
+            <h1 class="neon-text-giant">BIG WIN!</h1>
+            <div id="rollup-counter">0</div>
+        </div>
+    </div>
+
+    <div class="casino-wrapper" id="main-wrapper">
         <header>
-            <h1 class="neon-text">🎰 The LLM Token Guzzler 🎰</h1>
-            <p>Spend your context window on useless generations!</p>
+            <h1 class="neon-text">🎰 Neon Nexus Slots 🎰</h1>
+            <p>Engage the Matrix. Spin to win.</p>
         </header>
 
         <main class="slot-machine">
             <div class="top-bar">
                 <div class="balance-display">
-                    <span>Context Window: </span>
-                    <span id="balance">8192</span> <span class="unit">Tokens</span>
+                    <span>Credits: </span>
+                    <span id="balance">8192</span>
                 </div>
-                <div class="streak-display">
-                    <span>Streak: <span id="streak">0</span> 🔥</span>
-                    <div id="multiplier" class="hidden">x1</div>
+                <div class="bonus-display hidden" id="bonus-display">
+                    <span>FREE SPINS: <span id="free-spins-left">10</span></span>
+                    <div id="multiplier">x3</div>
                 </div>
             </div>
             
-            <div class="reels-container">
+            <div class="reels-container" id="reels-container">
+                <svg id="payline-svg" width="100%" height="100%" class="payline-overlay"></svg>
                 <div class="reels">
-                    <div class="reel" id="reel1"><div class="reel-inner">🤖</div></div>
-                    <div class="reel" id="reel2"><div class="reel-inner">🤖</div></div>
-                    <div class="reel" id="reel3"><div class="reel-inner">🤖</div></div>
+                    <!-- Reel 1 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel0">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-0" disabled>STOP</button>
+                    </div>
+                    <!-- Reel 2 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel1">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-1" disabled>STOP</button>
+                    </div>
+                    <!-- Reel 3 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel2">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-2" disabled>STOP</button>
+                    </div>
                 </div>
             </div>
 
@@ -39,35 +67,13 @@
                     <div class="bet-display">Bet: <span id="current-bet">100</span></div>
                     <button id="increase-bet" class="bet-btn">+</button>
                 </div>
-                <button id="spin-btn" class="spin-btn">Generate Response</button>
-                <button id="reset-btn" class="hidden action-btn">Beg VC for more Tokens</button>
+                <button id="spin-btn" class="spin-btn">SPIN</button>
             </div>
             
-            <div class="secondary-controls">
-                <button id="payouts-btn" class="action-btn">View Payouts & Docs</button>
-            </div>
-
             <div class="message-area" id="message">
-                Ready to waste some compute? Click Generate!
+                Ready to spin?
             </div>
         </main>
-
-        <section class="logs">
-            <h2>Terminal Output</h2>
-            <div class="terminal" id="terminal-log">
-                > System initialized. Awaiting prompts...<br>
-            </div>
-        </section>
-    </div>
-
-    <!-- Payouts Modal -->
-    <div id="payouts-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>API Pricing & Payouts</h2>
-            <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem;">Payouts are multiplied by your bet amount.</p>
-            <div id="payouts-list"></div>
-        </div>
     </div>
 
     <script src="script.js"></script>
