@@ -13,4 +13,4 @@
 |Lines of code|300|
 |Runs in browser?|YES|
 |App Quality Notes|Poor slot animation: only vibrates instead of scrolling. Message is red on a loss and green on a win. Layout is resized when the button is pushed.|
-|Code Quality Notes||
+|Code Quality Notes|Good use of comments. Variable names generally decent. Some of the indentation spacing is off. Some colors are defined in style.css (which is a plus) but not all of them are.|

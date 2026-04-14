@@ -13,4 +13,4 @@
 |Lines of code|340|
 |Runs in browser?|YES|
 |App Quality Notes|Text green on a win. Most of the time you get of one two messages: "API Error 402: Payment Required. Tokens burned." or "Minor optimization successful. Tokens recovered. (+10 Tokens)" so not very hooking. Payout table is a plus. Layout is resized when the button is pushed.|
-|Code Quality Notes||
+|Code Quality Notes|Comments are more sparse. Variable names are decent. Some colors are defined in style.css (which is a plus) but not all of them are. CSS is often used in the JS.|

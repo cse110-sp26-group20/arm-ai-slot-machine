@@ -13,4 +13,4 @@
 |Lines of code|310|
 |Runs in browser?|YES|
 |App Quality Notes|Animation has vibration but no scrolling. Messages are given as terminal output (interesting design but not as readable). Layout does not shift or resize when the button is pushed.|
-|Code Quality Notes||
+|Code Quality Notes|Minimal comments. Styling is fairly consistent. Some colors are defined in style.css but not all of them.|
