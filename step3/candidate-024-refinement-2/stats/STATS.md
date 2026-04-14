@@ -1,3 +1,5 @@
+# 024-Run's Stats
+
 |Field|Notes|
 |:--|:--|
 |Run ID|candidate-024-refinement-2|
@@ -11,5 +13,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|912|
 |Runs in browser?|YES|
-|App Quality Notes| Very good rolling animation. Dull color scheme, gray/dark blue with yellow, green and purple highlights; option to change bet size; payout info modal; screen has effects if you win/lose (shake/gets bigger); sounds for rolling, winning, and losing; Variety of winning/losing messages
-|Code Quality Notes|Properly seperated files; `index.html` well structured with descriptive class names; `script.js` has descriptive variable names; sparse comments describing section headers; very minimal comments describing complex functions; `style.css` has 474 LOC w/ comments seperating diff sections|
+|App Quality Notes|Theme and controls are clear, but the UI looks a bit awkward overall. The win line is visibly not aligned with the symbols, and some layout spacing and sizing choices make the interface feel less polished.|
+|Code Quality Notes|Code is feature-rich and reasonably organized, with clear constants and separate functions for spinning, stopping, evaluating wins, audio, and visual effects. Main weaknesses is reliance on hard-coded timing/layout behavior, which likely contributes to the visible UI and line-alignment issues.|
