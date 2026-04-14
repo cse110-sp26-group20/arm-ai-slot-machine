@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Casino Slot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="casino-bg"></div>
+    <div class="container">
+        <header>
+            <h1 class="neon-text">🎰 AI HYPE CASINO 🎰</h1>
+            <p class="subtitle">Will you reach AGI or just generate slop?</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="tokens">
+                Compute Tokens: <span id="token-count" class="token-value">1000</span> 🪙
+            </div>
+            <div class="streak-box" id="streak-box" style="display: none;">
+                🔥 Streak: <span id="streak-count">0</span> 🔥
+            </div>
+            <div class="message" id="message">
+                Insert compute to spin!
+            </div>
+        </div>
+
+        <div class="machine-border">
+            <div class="lights-top"></div>
+            <div class="slot-machine" id="slot-machine">
+                <div class="reel" id="reel-1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="win-overlay" id="win-overlay"></div>
+            </div>
+            <div class="lights-bottom"></div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="bet-section">
+                <button id="bet-down" class="btn-small">➖</button>
+                <div class="bet-display">Bet: <span id="bet-amount">10</span></div>
+                <button id="bet-up" class="btn-small">➕</button>
+                <button id="bet-max" class="btn-small">MAX</button>
+            </div>
+            <div class="main-actions">
+                <button id="spin-btn" class="btn-spin">SPIN (TRAIN)</button>
+                <button id="reset-btn" class="btn-reset" style="display: none;">Bribe VC (Reset Tokens)</button>
+            </div>
+            <div class="util-actions">
+                <button id="payouts-btn" class="btn-info">View Payouts ℹ️</button>
+            </div>
+        </div>
+        
+        <div class="modal" id="payouts-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-payouts">&times;</span>
+                <h3>Payouts & Rules</h3>
+                <ul id="payout-list">
+                    <!-- populated by js -->
+                </ul>
+                <p class="bonus-rule">🔥 Streak Bonus: 3+ wins = 2x multiplier! 5+ wins = 5x multiplier! 🔥</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

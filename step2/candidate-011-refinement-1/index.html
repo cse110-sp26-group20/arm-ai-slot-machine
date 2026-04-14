@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Casino: The Prompt Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particle-container"></div>
+    <div class="container">
+        <header>
+            <h1 class="neon-text">AI TOKEN SLOTS</h1>
+            <p>Gambling with Compute Power since 2026</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="top-bar">
+                <button id="paytable-btn">ℹ️ Payouts</button>
+                <div class="streak-display">Streak: <span id="streak">0</span> 🔥</div>
+                <button id="reset-btn" style="display:none;">🔄 Reset Tokens</button>
+            </div>
+
+            <div class="scoreboard">
+                <div class="balance-display">Tokens: <span id="balance">1000</span></div>
+                <div class="bet-controls">
+                    <span>Bet: </span>
+                    <button id="bet-minus">-</button>
+                    <span id="bet">100</span>
+                    <button id="bet-plus">+</button>
+                </div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🧠</div></div>
+                <div class="reel" id="reel3"><div class="symbol">💻</div></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="glow-btn">GENERATE (SPIN)</button>
+            </div>
+
+            <div class="message-area" id="message">
+                Ready to waste some GPUs?
+            </div>
+        </main>
+        
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>Payouts (Multiplier of Bet)</h3>
+                <ul class="paytable-list">
+                    <li>💰💰💰 : x10 (AGI Achieved)</li>
+                    <li>🧠🧠🧠 : x5 (Perfect Prompt)</li>
+                    <li>🤖🤖🤖 : x3 (Good Output)</li>
+                    <li>💻💻💻 : x2 (Compute Secured)</li>
+                    <li>📉📉📉 : -x1 Penalty (Context Limit)</li>
+                    <li>🚨🚨🚨 : -x2 Penalty (Total Hallucination)</li>
+                </ul>
+                <p><strong>Streak Bonus:</strong> 3+ consecutive wins = 2x Multiplier on Wins!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
