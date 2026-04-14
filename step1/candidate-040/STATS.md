@@ -13,5 +13,5 @@
 | Files produced | index.html, script.js, style.css|
 | Lines of code | 332 |
 | Runs in browser? | Yes |
-| App Quality Notes | |
-| Code Quality Notes | |
+| App Quality Notes | Weighted symbols add replay depth and a `requestAnimationFrame` loop drives the spin animation smoothly. Red/dark theme is distinctive but no paytable is shown, so payout rules are invisible to the player. No multi-modal features. |
+| Code Quality Notes | Clean weighted-array approach for symbol probability and one of the leaner submissions. Comments exist but inline style manipulation (`messageEl.style.color = "red"`) is scattered rather than using CSS classes. Variable names are generally clear. |

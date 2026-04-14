@@ -13,5 +13,5 @@
 | Files produced | index.html, script.js, style.css|
 | Lines of code | 352 |
 | Runs in browser? | Yes |
-| App Quality Notes | |
-| Code Quality Notes | |
+| App Quality Notes | Weighted symbols with detailed per-symbol payout cases for both 3-of-a-kind and 2-of-a-kind; staggered reel stops work cleanly. No paytable is visible to the player and the dark-blue theme is functional but plain. No multi-modal features. |
+| Code Quality Notes | Class names are clear (`balance-display`, `message-board`) but inline style manipulation (`messageBoard.style.color`) is scattered throughout JS rather than toggling CSS classes. Weighted pool construction is commented well. CSS is on the leaner side. |

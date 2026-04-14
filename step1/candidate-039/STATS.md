@@ -13,5 +13,5 @@
 | Files produced | index.html, script.js, style.css|
 | Lines of code | 404 |
 | Runs in browser? | Yes |
-| App Quality Notes | |
-| Code Quality Notes | |
+| App Quality Notes | Standard spin with staggered reel stops and both 2-of-a-kind and 3-of-a-kind logic, including penalty modes for bad symbols. The dark terminal aesthetic (neon green on deep navy) is consistent and a visible paytable lists all rewards. No multi-modal features. |
+| Code Quality Notes | Well-separated files with descriptive class and variable names (`.stat-box`, `.message-area`, `spinButton`, `isSpinning`). Comments are sparse; the reel-spinning trick is noted but most logic is uncommented. Uses CSS custom properties throughout. |

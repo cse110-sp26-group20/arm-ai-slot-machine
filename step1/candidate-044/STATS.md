@@ -13,5 +13,5 @@
 | Files produced | index.html, script.js, style.css|
 | Lines of code | 238 |
 | Runs in browser? | Yes |
-| App Quality Notes | |
-| Code Quality Notes | |
+| App Quality Notes | Most basic playability in the set, with only 3-of-a-kind payouts with a single shared spin animation and no staggered reel stops. Terminal-green-on-black aesthetic is cohesive and retro but there is no paytable shown in the UI. No multi-modal features. |
+| Code Quality Notes | One of the leanest and most readable submissions. Inline comments above the symbol array explain each emoji clearly. Class names are minimal and not very semantic (`body`, `.reel`, `.message`); CSS has no custom properties. |

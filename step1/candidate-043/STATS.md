@@ -13,5 +13,5 @@
 | Files produced | index.html, script.js, style.css|
 | Lines of code | 380 |
 | Runs in browser? | Yes |
-| App Quality Notes | |
-| Code Quality Notes | |
+| App Quality Notes | Reels display a blurred `??` placeholder while spinning, which is a nice visual touch. A footer disclaimer ("No refunds on hallucinated tokens") adds personality. Blue glowing button and gradient container are polished, but no multi-modal features. |
+| Code Quality Notes | Separate `payouts` and `messages` objects are a clean pattern and the JS is concise. Comments explain the rapid pre-stop shuffle effect and the CSS `::before` shadow overlay. Class names and variable names are descriptive and consistent. |
