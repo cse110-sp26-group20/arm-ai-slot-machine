@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Casino - Reforged</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- BIG WIN OVERLAY -->
+    <div id="big-win-overlay" class="hidden">
+        <canvas id="particle-canvas"></canvas>
+        <div class="big-win-content">
+            <h1 class="neon-text-giant">BIG WIN!</h1>
+            <div id="rollup-counter">0</div>
+        </div>
+    </div>
+
+    <div class="casino-wrapper" id="main-wrapper">
+        <header>
+            <h1 class="neon-text">🎰 Neon Nexus Slots 🎰</h1>
+            <p>Engage the Matrix. Spin to win.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="top-bar">
+                <div class="balance-display">
+                    <span>Credits: </span>
+                    <span id="balance">8192</span>
+                </div>
+                <div class="bonus-display hidden" id="bonus-display">
+                    <span>FREE SPINS: <span id="free-spins-left">10</span></span>
+                    <div id="multiplier">x3</div>
+                </div>
+            </div>
+            
+            <div class="reels-container" id="reels-container">
+                <svg id="payline-svg" width="100%" height="100%" class="payline-overlay"></svg>
+                <div class="reels">
+                    <!-- Reel 1 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel0">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-0" disabled>STOP</button>
+                    </div>
+                    <!-- Reel 2 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel1">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-1" disabled>STOP</button>
+                    </div>
+                    <!-- Reel 3 -->
+                    <div class="reel-column">
+                        <div class="reel" id="reel2">
+                            <div class="reel-strip"></div>
+                        </div>
+                        <button class="stop-btn" id="stop-btn-2" disabled>STOP</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-controls">
+                    <button id="decrease-bet" class="bet-btn">-</button>
+                    <div class="bet-display">Bet: <span id="current-bet">100</span></div>
+                    <button id="increase-bet" class="bet-btn">+</button>
+                </div>
+                <button id="spin-btn" class="spin-btn">SPIN</button>
+            </div>
+            
+            <div class="message-area" id="message">
+                Ready to spin?
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

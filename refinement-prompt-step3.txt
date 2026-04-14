@@ -1,0 +1,7 @@
+Refactor the provided code into a professional 3x3 grid with 5 paylines.
+
+Visuals & Clarity: Replace all emojis with high-contrast, glowing SVG icons. When a win occurs, draw neon paylines over the winning symbols. Trigger a 'BIG WIN' overlay banner with a persistent shower of token particles and a 'Token Roll-up' counter that ticks up credits with escalating audio.
+
+Mechanics: Add 'Wild' symbols that substitute for any icon. Add 'Scatter' symbols; landing 3 Scatters triggers a 'Free Spins' bonus mode (10 spins, 3x multiplier) with a distinct UI color-shift. Implement a stop button to halt each column to give the feeling of skill to the player.
+
+Tension: Implement 'Win Anticipation', if a win is possible, the third reel spins 3 seconds longer/slower with a rising pitch arpeggio. Weight the stopping logic to trigger 'Near Misses' where Jackpots land just outside the payline. Ensure the entire app is fully responsive and uses the Web Audio API for all sounds
