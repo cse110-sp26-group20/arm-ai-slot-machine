@@ -2,16 +2,16 @@
 
 |          Field          |   Notes   |
 | --------------------    | --------- |
-| Notes                   |  |
-| Timestamp               |  |
-| Model + String Version  |  |
-| Input Tokens            |  |
-| Output Tokens           |  |
-| Total Tokens            |  |
-| Wall-Clock Time (s)     |  |
-| Tool-Reported Times (s) |  |
-| Files Produced          |  |
-| Lines of Code           |  |
-| Run in Browser?         |  |
-| App Quality Notes       |  |
-| Code Quality Notes      |  |
+| Notes                   | AI Token Slots. Start with 100 tokens, costs 10 tokens to spin. |
+| Timestamp               | 2026-04-12 11:25:00 (PT) |
+| Model + String Version  | gemini-3.1-pro-preview |
+| Input Tokens            | 14,487 |
+| Output Tokens           | 3,127 |
+| Total Tokens            | 26,729 |
+| Wall-Clock Time (s)     | 154 |
+| Tool-Reported Times (s) | 0.126 |
+| Files Produced          | index.html, script.js, style.css |
+| Lines of Code           | 324 |
+| Run in Browser?         | Yes |
+| App Quality Notes       | Somewhat visually pleasing as it uses contrasting colors, contains a paytable and has 4 matches with an usual 0 token payout roll, simple to use, only uses 1 quip output after a slot roll but payouts have their own unique quips. |
+| Code Quality Notes      | Short amount of lines, few comments, separated files, descriptive class and variable names |
