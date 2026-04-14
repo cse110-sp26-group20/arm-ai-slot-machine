@@ -1,3 +1,4 @@
+# 013-Run's Stats
 |Field|Notes|
 |:--|:--|
 |Run ID|candidate-013-refinement2|
@@ -11,5 +12,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|684|
 |Runs in browser?|YES|
-|App Quality Notes|Shows terminal output; Option to change bet amount; Payout table help option; plain color scheme (gray/dark blue) with highlights for streak, current token count, and bright purple generate button. Fun spin animation with sounds for rolling, winning, and losing|
-|Code Quality Notes|Files properly seperated; descriptive class names in index.html `.casino-wrapper`, `.bet-controls`, etc., functions in script.js focus on 1 certain task, minimal comments, index.html well structured; CSS file has 384 LOC|
+|App Quality Notes|Polished neon cyber-themed slot machine UI with strong visual hierarchy and clear game flow. Credits, free spins, bet controls, spin button. The browser presentation looks clean and centered.|
+|Code Quality Notes|Feature set is strong and the code is reasonably organized with constants, helper functions, and separate logic for spins, payouts, audio, and effects. Main weaknesses are the hard-coded timing values, and limited modularity.|

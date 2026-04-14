@@ -1,3 +1,5 @@
+# 049-Run's Stats
+
 |Field|Notes|
 |:--|:--|
 |Run ID|candidate-049-refinement-2|
@@ -11,5 +13,5 @@
 |Files produced|"index.html", "script.js", "style.css"|
 |Lines of code|1241|
 |Runs in browser?|YES|
-|App Quality Notes| Very interactive/engaging; each item spins and lands seperately, message has typing animation, title has glowing/flashing yellow highlight; red border flashes around items if you lose and blue flashes if you win; option to change token bet; rolling/win/lose sound, color scheme a bit dull with highlights for token count, generate button, and messages
-|Code Quality Notes|Properly seperated files; `index.html` well structured with descriptive class names. `script.js` has comments seperating different sections, descriptive variable and function names; each function does 1 task; more inline logic comments but still minimal; `style.css` has 420 LOC with comments dividing sections
+|App Quality Notes|The app has a clear neon arcade style and the main controls are easy to locate, with tokens, bet controls, spin button, and reel area all visually separated well. The interface is usable and readable, but the audio feedback is kind of too intense for regular play, which makes the experience feel harsher.|
+|Code Quality Notes|Code has a strong feature set and is fairly well organized, with separate sections for symbols, paylines, audio, reel generation, win evaluation, particles, and UI events. It supports weighted symbol selection, near-miss behavior, anticipation logic, free spins, streak bonuses, modal handling, keyboard input, and animated effects, so the implementation is clearly feature-rich.|
