@@ -3,7 +3,7 @@
 | Field | Notes |
 |:--|:--|
 | Run ID | candidate-041 |
-| Timestamp | 1776020100|
+| Timestamp | 2026-04-12T11:55:00-07:00|
 | Model + version string | gemini-3.1-pro-preview |
 | Input tokens | 23,452 |
 | Output tokens | 4,976 |
