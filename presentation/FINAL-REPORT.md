@@ -2,7 +2,7 @@
 **Group 20**
 
 ## 1. Executive Summary
-This project investigated the consistency, variation, and refinement capabilities of Generative AI coding assistants—specifically **Gemini 3.1 Pro Preview**. By executing a frozen prompt 50 times in "clean sessions" and undergoing a structured, one-shot refinement process, the team evaluated the limits of automated code generation. While the model demonstrated high functional consistency, significant "visual drift" and "logic variance" were observed, particularly as the complexity of the requirements increased.
+This project investigated the consistency, variation, and refinement capabilities of Generative AI coding assistants, specifically **Gemini 3.1 Pro Preview** (`gemini-3.1-pro-preview`). By executing a frozen prompt 50 times in "clean sessions" and undergoing a structured, one-shot refinement process, the team evaluated the limits of automated code generation. While the model demonstrated high functional consistency, significant "visual drift" and "logic variance" were observed, particularly as the complexity of the requirements increased.
 
 ## 2. Methodology
 * **Model:** Gemini 3.1 Pro Preview (via Gemini CLI / Headless Mode)
