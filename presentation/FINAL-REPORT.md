@@ -24,7 +24,7 @@ We executed the original prompt 50 times. The prompt requested a vanilla web tec
 
 ### Observations on Drift
 * **Visual Structure:** Despite identical instructions, there were reletively differing visuals between the 50.
-* **Humor/Thematic Drift:** The "AI Mockery" jokes varied significantly. Early runs focused on "hallucination" and "GPU shortage" jokes, while later runs occasionally fixeded on "prompt slop" or "VC funding" themes.
+* **Humor/Thematic Drift:** The "AI Mockery" jokes varied significantly. Early runs focused on "hallucination" and "GPU shortage" jokes, while later runs occasionally fixed on "prompt slop" or "VC funding" themes.
 
 ## 4. The Refinement Journey (Phase 3-5)
 The team selected 5 candidates for Step 2, focusing on those with the most unique features.
