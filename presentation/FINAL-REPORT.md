@@ -14,13 +14,12 @@ This project investigated the consistency, variation, and refinement capabilitie
 We executed the original prompt 50 times. The prompt requested a vanilla web technology slot machine making fun of AI.
 
 ### Quantitative Summary (Approx)
-| Metric | Average | 
-| :--- | :--- |
-| Input Tokens | ~120 |
-| Output Tokens | ~950 | 
-| Wall-Clock Time | 14.5s |
-| Lines of Code | 240 |
-
+| Metric | Average | Standard Deviation | Range (Min - Max) |
+| :--- | :--- | :--- | :--- |
+| Input Tokens | 16,842 | ±3,015 | 12,330 - 25,899
+| Output Tokens | 3,552 | ±820 | 2,157 - 6,921
+| Wall-Clock Time | 138s | ±95s | 60s - 423s
+| Lines of Code | 368 | ±61 | 238 - 533
 
 ### Observations on Drift
 * **Visual Structure:** Despite identical instructions, there were reletively differing visuals between the 50.
