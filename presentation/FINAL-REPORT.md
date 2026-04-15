@@ -35,7 +35,7 @@ We moved from a 1x3 row to a **3x3 grid**. This was a "stress test" for the mode
 * **Result:** Gemini successfully implemented 2D arrays.
 
 ### Step 5: The Final Candidate
-The final candidate, **"Neon Cyber Slots,"** evolved to include:
+The final candidate, **"Neon Slots,"** evolved to include:
 * **State Management:** An "AI Auto-Pilot" mode and a "Free Spins" bonus state.
 * **Exponential Economy:** A shop system where upgrades (Luck/Money multipliers) increased in cost exponentially.
 * **Visual Polish:** SVG-based icons, particle explosions for Jackpots, and neon-tracing animations for winning lines.
