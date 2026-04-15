@@ -15,7 +15,7 @@ We executed the original prompt 50 times. The prompt requested a vanilla web tec
 
 ### Quantitative Summary (Approx)
 | Metric | Average | 
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Input Tokens | ~120 |
 | Output Tokens | ~950 | 
 | Wall-Clock Time | 14.5s |
