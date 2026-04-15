@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Casino</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container" class="container">
+        <header>
+            <h1 class="casino-title">Neon Slots</h1>
+            <p class="subtitle">Match 3 across 5 paylines</p>
+        </header>
+
+        <div class="top-controls">
+            <button id="paytable-btn" class="control-btn">ℹ️ Payouts</button>
+            <button id="shop-btn" class="control-btn">🛒 Shop</button>
+            <button id="reset-btn" class="control-btn hidden">🔄 Reset Tokens</button>
+            <div class="volume-control" style="display: flex; align-items: center; gap: 0.5rem; background: #1f2937; padding: 0.5rem; border-radius: 0.25rem; border: 1px solid var(--neon-cyan);">
+                <label for="volume-slider" style="font-size: 1.2rem;">🔊</label>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" style="width: 80px;">
+            </div>
+        </div>
+
+        <main class="slot-machine">
+            <div class="status-bar">
+                <div class="stat">
+                    <span class="label">Tokens:</span>
+                    <span class="value" id="token-balance">1000</span>
+                </div>
+                <div class="stat" id="free-spins-display" style="display:none">
+                    <span class="label" style="color:var(--neon-purple)">Free Spins:</span>
+                    <span class="value" id="free-spins-count" style="color:var(--neon-purple)">0</span>
+                </div>
+                <div class="stat" id="streak-display">
+                    <span class="label">Streak:</span>
+                    <span class="value streak" id="streak-counter">0</span>
+                </div>
+            </div>
+
+            <div class="reels-wrapper">
+                <div class="reels-window">
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-0"></div>
+                    </div>
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-1"></div>
+                    </div>
+                    <div class="reel-container">
+                        <div class="reel-strip" id="reel-2"></div>
+                    </div>
+                    <svg class="paylines-overlay" id="paylines-overlay"></svg>
+                </div>
+                <div class="stop-controls">
+                    <button class="stop-btn" id="stop-0" disabled>STOP 1</button>
+                    <button class="stop-btn" id="stop-1" disabled>STOP 2</button>
+                    <button class="stop-btn" id="stop-2" disabled>STOP 3</button>
+                </div>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Ready to spin.
+            </div>
+
+            <div class="bet-controls">
+                <button id="bet-minus" class="bet-btn">-</button>
+                <div class="current-bet-display">
+                    <span class="label">Bet:</span>
+                    <span id="current-bet" class="value cost">10</span>
+                </div>
+                <button id="bet-plus" class="bet-btn">+</button>
+                <button id="bet-reset" class="bet-btn" style="font-size: 0.8rem; font-weight: bold;">MIN</button>
+                <button id="bet-max" class="bet-btn max">MAX</button>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="spin-btn">SPIN</button>
+            </div>
+        </main>
+
+        <div id="shop-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-shop" class="close">&times;</span>
+                <h3>Upgrade Shop</h3>
+                <div class="shop-items" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-cyan);">
+                        <h4 style="color: var(--neon-cyan); margin-bottom: 0.5rem;">Luck Multiplier</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">Increases chance of rare symbols.</p>
+                        <button id="buy-luck" class="control-btn">Buy for 500</button>
+                    </div>
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-green);">
+                        <h4 style="color: var(--neon-green); margin-bottom: 0.5rem;">Money Multiplier</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">+50% to all wins.</p>
+                        <button id="buy-money" class="control-btn">Buy for 1000</button>
+                    </div>
+                    <div class="shop-item" style="background: #000; padding: 1rem; border-radius: 0.5rem; border-left: 3px solid var(--neon-magenta);">
+                        <h4 style="color: var(--neon-magenta); margin-bottom: 0.5rem;">AI Cosmetic</h4>
+                        <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">Unlock Cyber-Bot Assistant.</p>
+                        <button id="buy-cosmetic" class="control-btn">Buy for 300</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h3>Payouts (Multiplier)</h3>
+                <ul id="paytable-list">
+                    <!-- populated via JS -->
+                </ul>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--neon-magenta);">Wild substitutes for any symbol except Scatter.</p>
+                <p style="margin-top: 5px; font-size: 0.8rem; color: var(--neon-purple);">3 Scatters = 10 Free Spins (3x Multiplier)!</p>
+            </div>
+        </div>
+
+        <div id="big-win-overlay" class="hidden">
+            <canvas id="particles-canvas"></canvas>
+            <div class="big-win-content">
+                <h2 class="big-win-title">BIG WIN!</h2>
+                <div class="rollup-counter" id="rollup-counter">0</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

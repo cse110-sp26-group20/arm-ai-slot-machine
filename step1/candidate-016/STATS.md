@@ -3,7 +3,7 @@
 |Field|Notes|
 |:---|:--|
 |Run ID|candidate-016|
-|Timestamp|2026-04-11T14:29:37|
+|Timestamp|2026-04-11T14:29:37-07:00|
 |Model + version string|3.1 pro preview, Gemini Code Assist in Google One AI Pro|
 |Input tokens|19317|
 |Output tokes|3449|
