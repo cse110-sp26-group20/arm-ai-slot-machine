@@ -3,77 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Cyber Slots</title>
+    <title>Neural Network Slots</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="casino-bg" id="casino-bg"></div>
     
     <div id="ai-cosmetic" class="hidden">
-        <div class="ai-bot">🤖</div>
-        <div class="ai-speech" id="ai-speech-text">Processing luck...</div>
+        <div class="ai-bot" id="ai-bot-icon">🤖</div>
+        <div class="ai-speech" id="ai-speech-text">Model Loaded...</div>
     </div>
 
     <div id="big-win-overlay">
         <canvas id="particles-canvas"></canvas>
         <div class="big-win-content">
-            <h1 class="glow-text">BIG WIN</h1>
+            <h1 class="glow-text" id="win-tier-text">BIG WIN</h1>
             <div id="rollup-counter">0</div>
         </div>
     </div>
 
     <!-- Modals -->
     <div id="shop-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="neon-text-small">UPGRADE SHOP</h2>
-            <div class="shop-item">
-                <span>🍀 Luck Multiplier (Cost: 500)</span>
-                <button id="buy-luck" class="btn-small">Buy</button>
+        <div class="modal-content shop-content">
+            <div class="modal-header">
+                <h2 class="neon-text-small">UPGRADE MODULES</h2>
+                <div class="tokens-mini">CREDITS: <span id="shop-tokens" class="token-value">0</span></div>
             </div>
-            <div class="shop-item">
-                <span>💰 Money Multiplier (Cost: 1000)</span>
-                <button id="buy-money" class="btn-small">Buy</button>
+            <div class="shop-grid" id="shop-grid">
+                <!-- Dynamically populated via JS -->
             </div>
-            <div class="shop-item">
-                <span>🤖 AI Cosmetic (Cost: 200)</span>
-                <button id="buy-cosmetic" class="btn-small">Buy</button>
-            </div>
-            <button id="close-shop" class="btn-small mt-10">Close</button>
+            <button id="close-shop" class="btn-small mt-10">Close Interface</button>
         </div>
     </div>
 
     <div id="payout-modal" class="modal hidden">
         <div class="modal-content">
-            <h2 class="neon-text-small">PAYOUTS</h2>
+            <h2 class="neon-text-small">MODEL PAYOUTS</h2>
             <div class="payout-grid">
-                <p><strong>7:</strong> 50x</p>
-                <p><strong>BAR:</strong> 20x</p>
-                <p><strong>BELL:</strong> 10x</p>
-                <p><strong>DIAMOND:</strong> 5x</p>
-                <p><strong>CHERRY:</strong> 2x</p>
-                <p><strong>WILD:</strong> Substitutes</p>
-                <p><strong>SCATTER:</strong> 3 triggers Free Spins</p>
+                <div class="payout-row"><div class="p-icon" id="p-agi"></div> <p><strong>AGI:</strong> 50x</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-tensor"></div> <p><strong>TENSOR:</strong> 20x</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-gpu"></div> <p><strong>GPU:</strong> 10x</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-cpu"></div> <p><strong>CPU:</strong> 5x</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-data"></div> <p><strong>DATA:</strong> 2x</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-bug"></div> <p><strong>BUG (WILD):</strong> Substitutes</p></div>
+                <div class="payout-row"><div class="p-icon" id="p-prompt"></div> <p><strong>PROMPT (SCAT):</strong> 3 -> Free Spins</p></div>
             </div>
-            <button id="close-payout" class="btn-small mt-10">Close</button>
+            <button id="close-payout" class="btn-small mt-10">Close Interface</button>
         </div>
     </div>
 
     <div class="container">
         <header>
-            <h1 class="neon-text">NEON SLOTS</h1>
+            <h1 class="neon-text title-anim">NEURAL SLOTS</h1>
         </header>
 
-        <div class="stats-panel">
+        <div class="stats-panel detailed-panel">
             <div class="tokens">
-                CREDITS: <span id="token-count" class="token-value">1000</span>
+                DATA CREDITS: <span id="token-count" class="token-value">1000</span>
             </div>
             <div id="fs-display" class="hidden">
-                FREE SPINS: <span id="fs-count">0</span> (3x WINS)
+                <span class="fs-glow">FREE SPINS: <span id="fs-count">0</span> (3x WINS)</span>
             </div>
-            <div class="message" id="message">Insert credits to spin!</div>
+            <div class="message" id="message">Insert credits to train model!</div>
         </div>
 
-        <div class="machine-border">
+        <div class="machine-border" id="machine-border">
             <div class="slot-machine" id="slot-machine">
                 <svg class="paylines-overlay" id="paylines-overlay"></svg>
                 
@@ -94,30 +88,37 @@
                 </div>
             </div>
             <div class="stop-buttons">
-                <button class="btn-stop" id="stop-0" disabled>STOP</button>
-                <button class="btn-stop" id="stop-1" disabled>STOP</button>
-                <button class="btn-stop" id="stop-2" disabled>STOP</button>
+                <button class="btn-stop" id="stop-0" disabled>HALT</button>
+                <button class="btn-stop" id="stop-1" disabled>HALT</button>
+                <button class="btn-stop" id="stop-2" disabled>HALT</button>
             </div>
         </div>
 
-        <div class="controls-panel">
+        <div class="controls-panel detailed-panel">
             <div class="bet-section">
-                <button id="bet-down" class="btn-small">➖</button>
-                <div class="bet-display">BET: <span id="bet-amount">10</span></div>
-                <button id="bet-up" class="btn-small">➕</button>
+                <div class="bet-display">ALLOCATE: <span id="bet-amount">10</span></div>
+                <input type="range" id="bet-slider" min="10" max="1000" step="10" value="10" class="styled-slider">
                 <button id="bet-max" class="btn-small">MAX</button>
-                <button id="bet-reset" class="btn-small">RESET</button>
             </div>
-            <div class="extra-actions">
-                <button id="payout-btn" class="btn-small">PAYOUTS</button>
-                <button id="shop-btn" class="btn-small">SHOP</button>
+            
+            <div class="action-grid">
+                <div class="extra-actions">
+                    <button id="payout-btn" class="btn-small btn-icon">📊 Payouts</button>
+                    <button id="shop-btn" class="btn-small btn-icon">🛒 Upgrades</button>
+                </div>
+                <div class="volume-control">
+                    <span class="vol-icon">🔊</span>
+                    <input type="range" id="volume-slider" min="0" max="2" step="0.1" value="1" class="styled-slider vol-slider">
+                </div>
             </div>
-            <div class="volume-control">
-                <label for="volume-slider">Volume:</label>
-                <input type="range" id="volume-slider" min="0" max="2" step="0.1" value="1">
-            </div>
+
             <div class="main-actions">
-                <button id="spin-btn" class="btn-spin">SPIN</button>
+                <button id="reset-tokens-btn" class="btn-small btn-danger hidden">REBOOT (RESET CREDITS)</button>
+                <div id="auto-spin-container" class="hidden">
+                    <button id="auto-spin-btn" class="btn-auto">AUTO-TRAIN (Ready)</button>
+                    <div id="auto-spin-progress" class="progress-bar hidden"><div id="auto-spin-fill"></div></div>
+                </div>
+                <button id="spin-btn" class="btn-spin">EXECUTE RUN</button>
             </div>
         </div>
     </div>
