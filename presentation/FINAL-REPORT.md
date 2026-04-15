@@ -44,6 +44,13 @@ The final candidate, **"Neon Slots,"** evolved to include:
 
 ### Scientific Honesty & Constraints
 1.  **Tool Limitations:** The Gemini CLI  occasionally entered a "Planning Mode," which we bypassed using the `--yolo` flag to maintain the "clean session" rule.
+2.  **Paywall Constraints:** Although not related to the actual final product, it
+impacted our workflow and made it difficult to coordinate tasks, since only a couple people had access to the pro version of Gemini.
+### Expectations
+Heading into this warm-up, our main goal was to learn how AI affects the coding 
+process, especially after discussion of how AI has impacted this in the modern day
+SWE industry. We knew AI was capable of producing working code, but we also expected the possibility of flaws, which became apparent when generating code. Ultimately, this warm-up met our expectations with how the AI would perform.
 
 ## 6. Final Evaluation
-
+After concluding this warm-up, we had learned a lot about the role of AI in a SWE
+environment, the capabilities of prompt engineering, and the limits of AI. It gave mediocre results in the first 50 candidates, with very little functional differences between the different runs. However, after deciding on a direction to head towards with visuals and functionality, we were able to refine the AI to our expectations, highlighting the importance of a well defined prompt. After each refinement round, it would gain more features, but had the potential to lose features or new bugs would arise. In the final refinement round, we heavily stressed making sure all the bugs would be fixed, while also focusing on more UI related changes to limit the amount of functional bugs. Overall, we recognize that AI is a strong tool that can streamline a SWE's workflow if used correctly.
